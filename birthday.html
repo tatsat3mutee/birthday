@@ -3,22 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#7A2E45" />
+<meta name="theme-color" content="#F5A623" />
 <meta name="robots" content="noindex, nofollow" />
-<title>For Ruchitha</title>
+<title>Happy Birthday, Ruchitha!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --deep:#7A2E45;
-    --rose:#C6597A;
-    --blush:#F6D9E2;
-    --blush-lt:#FDF1F4;
-    --gold:#C6A24A;
-    --gold-lt:#E7D29A;
-    --ivory:#FFFBF8;
-    --ink:#3B2430;
+    --sun:#F5A623;
+    --amber:#E07B12;
+    --rust:#B85C1E;
+    --coral:#FF6F5E;
+    --teal:#2E9E8F;
+    --grape:#7B5EA7;
+    --cream:#FFF9EF;
+    --cream-lt:#FFF3DC;
+    --ink:#42331F;
+    --ink-soft:#6B5942;
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html,body{height:100%}
@@ -28,190 +30,265 @@
     -webkit-font-smoothing:antialiased;
     color:var(--ink);
     background:
-      radial-gradient(120% 70% at 50% -10%, #F6C6D6 0%, #E8879F 45%, #B84766 100%);
+      radial-gradient(130% 75% at 50% -12%, #FFE9A8 0%, #FFC864 38%, #FF9F45 68%, #F5813A 100%);
     min-height:100vh;min-height:100dvh;
     overflow-x:hidden;
     padding-bottom:max(40px, env(safe-area-inset-bottom));
   }
   img{max-width:100%;display:block}
 
-  .petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
-  .petal{position:absolute;top:-30px;animation:fall linear infinite;opacity:.55}
-  @keyframes fall{0%{transform:translateY(-30px) rotate(0)}100%{transform:translateY(115vh) rotate(340deg)}}
-  @media (prefers-reduced-motion:reduce){.petal{display:none}}
+  /* falling confetti */
+  .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+  .bit{position:absolute;top:-30px;animation:fall linear infinite;opacity:.7}
+  @keyframes fall{0%{transform:translateY(-30px) rotate(0)}100%{transform:translateY(115vh) rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.bit{display:none}}
 
-  .wrap{position:relative;z-index:1;max-width:520px;margin:0 auto;padding:max(30px, env(safe-area-inset-top)) 18px 10px}
+  .wrap{position:relative;z-index:1;max-width:540px;margin:0 auto;padding:max(28px, env(safe-area-inset-top)) 18px 10px}
 
-  .hero{text-align:center;padding:14px 0 8px}
+  /* ---------- hero ---------- */
+  .hero{text-align:center;padding:10px 0 6px}
   .eyebrow{
-    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;
-    color:#fff;letter-spacing:.05em;text-shadow:0 2px 12px rgba(0,0,0,.15);
+    display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+    color:#7A3E0B;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8);
+    padding:6px 14px;border-radius:999px;backdrop-filter:blur(4px);
   }
   h1{
-    font-family:'Cormorant Garamond',serif;font-weight:700;
-    font-size:clamp(48px,15vw,76px);line-height:.98;color:#fff;
-    text-shadow:0 4px 24px rgba(122,46,69,.35);margin-top:2px;
+    font-family:'Baloo 2',cursive;font-weight:800;
+    font-size:clamp(46px,14vw,72px);line-height:1.05;color:#fff;
+    text-shadow:0 4px 0 rgba(184,92,30,.35), 0 10px 30px rgba(150,70,10,.35);
+    margin-top:10px;
   }
   .sub{
-    font-family:'Cormorant Garamond',serif;font-style:italic;color:#FFF0F4;
-    font-size:clamp(16px,4.6vw,19px);margin-top:10px;max-width:30ch;margin-left:auto;margin-right:auto;
+    font-family:'Baloo 2',cursive;font-weight:600;color:#FFF6E4;
+    font-size:clamp(17px,4.8vw,20px);margin-top:6px;line-height:1.35;
+    max-width:26ch;margin-left:auto;margin-right:auto;
+    text-shadow:0 2px 10px rgba(150,70,10,.3);
   }
+  .sunicon{font-size:34px;display:inline-block;animation:spin 14s linear infinite;margin-bottom:2px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.sunicon{animation:none}}
 
+  /* ---------- countdown ---------- */
   .count-card{
-    margin:22px 0;background:var(--ivory);border-radius:22px;
-    padding:26px 18px 22px;box-shadow:0 24px 60px -18px rgba(90,20,40,.5), 0 0 0 1px rgba(198,162,74,.25);
-    text-align:center;
+    margin:22px 0;background:var(--cream);border-radius:24px;
+    padding:22px 16px 20px;text-align:center;
+    box-shadow:0 22px 50px -18px rgba(140,70,10,.55), 0 0 0 3px rgba(255,255,255,.55);
   }
-  .count-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);font-weight:600}
-  .count-date{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--deep);font-size:18px;margin-top:2px}
-  .timer{display:flex;justify-content:center;gap:10px;margin-top:16px}
-  .tblock{background:var(--blush-lt);border:1px solid rgba(198,89,122,.25);border-radius:14px;min-width:62px;padding:10px 4px}
-  .tnum{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(24px,7vw,32px);color:var(--deep);line-height:1;font-variant-numeric:tabular-nums}
-  .tlab{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin-top:4px}
-  .arrived{display:none;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--deep);font-size:22px;margin-top:14px}
+  .count-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:600}
+  .count-date{font-family:'Baloo 2',cursive;font-weight:700;color:var(--rust);font-size:22px;margin-top:0}
+  .timer{display:flex;justify-content:center;gap:9px;margin-top:14px}
+  .tblock{background:var(--cream-lt);border:2px solid rgba(245,166,35,.35);border-radius:16px;min-width:62px;padding:10px 4px}
+  .tnum{font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(24px,7vw,31px);color:var(--rust);line-height:1;font-variant-numeric:tabular-nums}
+  .tlab{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-top:3px;font-weight:600}
+  .arrived{display:none;font-family:'Baloo 2',cursive;font-weight:700;color:var(--rust);font-size:22px;margin-top:12px;line-height:1.3}
 
-  section{margin:30px 0}
+  /* ---------- section titles ---------- */
+  section{margin:32px 0}
   .stitle{
-    text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;
-    color:#fff;font-size:clamp(22px,6.5vw,28px);text-shadow:0 2px 12px rgba(0,0,0,.15);
-    margin-bottom:16px;
+    text-align:center;font-family:'Baloo 2',cursive;font-weight:700;
+    color:#fff;font-size:clamp(23px,6.6vw,29px);line-height:1.2;
+    text-shadow:0 3px 0 rgba(184,92,30,.3), 0 8px 20px rgba(150,70,10,.3);
+    margin-bottom:6px;
   }
-  .stitle .dot{color:var(--gold-lt)}
+  .ssub{
+    text-align:center;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:#FFF0D6;font-weight:500;margin-bottom:16px;
+  }
 
+  /* ---------- wishes wall ---------- */
+  .wishes{display:flex;flex-direction:column;gap:16px}
+  .wish{
+    position:relative;background:var(--cream);border-radius:20px;padding:20px 18px 16px;
+    box-shadow:0 16px 36px -16px rgba(140,70,10,.5), 0 0 0 3px rgba(255,255,255,.5);
+  }
+  .wish:nth-child(odd){transform:rotate(-.7deg)}
+  .wish:nth-child(even){transform:rotate(.7deg)}
+  .wish .quote{
+    position:absolute;top:-2px;left:16px;font-family:'Baloo 2',cursive;font-weight:800;
+    font-size:52px;line-height:1;color:rgba(245,166,35,.28);pointer-events:none;
+  }
+  .wish p{
+    position:relative;font-size:16px;line-height:1.6;color:var(--ink);
+  }
+  .wish .from{
+    display:flex;align-items:center;gap:10px;margin-top:14px;padding-top:13px;
+    border-top:2px dashed rgba(245,166,35,.4);
+  }
+  .wish .av{
+    width:34px;height:34px;border-radius:50%;flex:none;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Baloo 2',cursive;font-weight:700;font-size:15px;color:#fff;
+    box-shadow:0 4px 10px -3px rgba(0,0,0,.3);
+  }
+  .wish .who{font-family:'Baloo 2',cursive;font-weight:700;font-size:17px;color:var(--rust);line-height:1.1}
+  .wish .role{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+
+  .wish.open{
+    background:rgba(255,249,239,.4);border:2px dashed rgba(255,255,255,.85);box-shadow:none;
+    text-align:center;padding:16px 14px;
+  }
+  .wish.open .slot{font-family:'Baloo 2',cursive;font-weight:600;color:#fff;font-size:16px;text-shadow:0 2px 8px rgba(150,70,10,.35)}
+  .wish.open .hint{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#FFF0D6;margin-top:3px}
+
+  .tally{
+    text-align:center;margin-top:16px;font-family:'Baloo 2',cursive;font-weight:600;
+    color:#fff;font-size:15px;text-shadow:0 2px 8px rgba(150,70,10,.35);
+  }
+
+  /* ---------- traits ---------- */
   .traits{display:flex;flex-direction:column;gap:12px}
   .trait{
-    background:var(--ivory);border-radius:18px;padding:18px 18px 18px 60px;position:relative;
-    box-shadow:0 14px 34px -14px rgba(90,20,40,.4), 0 0 0 1px rgba(198,162,74,.2);
+    background:var(--cream);border-radius:18px;padding:16px 16px 16px 60px;position:relative;
+    box-shadow:0 14px 32px -16px rgba(140,70,10,.5), 0 0 0 3px rgba(255,255,255,.45);
   }
   .trait .ic{
-    position:absolute;left:16px;top:50%;transform:translateY(-50%);
-    width:34px;height:34px;border-radius:50%;
-    background:linear-gradient(145deg,#F0AFC3,#C6597A);
-    display:flex;align-items:center;justify-content:center;font-size:16px;
+    position:absolute;left:14px;top:50%;transform:translateY(-50%);
+    width:34px;height:34px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;font-size:17px;
+    background:var(--cream-lt);border:2px solid rgba(245,166,35,.35);
   }
-  .trait h3{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--deep);font-size:18px}
-  .trait p{font-family:'Cormorant Garamond',serif;color:var(--ink);font-size:16px;line-height:1.4;margin-top:2px}
+  .trait h3{font-family:'Baloo 2',cursive;font-weight:700;color:var(--rust);font-size:17px;line-height:1.2}
+  .trait p{font-size:15px;line-height:1.5;color:var(--ink-soft);margin-top:3px}
 
-  .zodiac{
-    background:linear-gradient(135deg,#7A2E45,#B84766);
-    border-radius:18px;padding:20px 18px;color:#fff;
-    box-shadow:0 14px 34px -14px rgba(0,0,0,.4);
+  /* ---------- fun facts strip ---------- */
+  .facts{
+    background:linear-gradient(135deg,#FF9F45,#F5813A);
+    border-radius:20px;padding:18px 16px;color:#fff;
+    box-shadow:0 16px 36px -16px rgba(140,70,10,.6), 0 0 0 3px rgba(255,255,255,.45);
   }
-  .zodiac .zrow{display:flex;justify-content:space-between;gap:10px;text-align:center}
-  .zodiac .zitem{flex:1}
-  .zodiac .zicon{font-size:22px}
-  .zodiac .zlab{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lt);margin-top:5px}
-  .zodiac .zval{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;margin-top:2px}
-  .zodiac .zline{
-    margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.2);
-    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;line-height:1.5;color:#FDEEF2;text-align:center;
+  .frow{display:flex;justify-content:space-between;gap:8px;text-align:center}
+  .fitem{flex:1}
+  .ficon{font-size:22px}
+  .flab{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#FFE7B8;margin-top:4px;font-weight:600}
+  .fval{font-family:'Baloo 2',cursive;font-weight:700;font-size:16px;margin-top:1px}
+  .fline{
+    margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.28);
+    font-size:14px;line-height:1.55;color:#FFF4E0;text-align:center;
   }
 
-  .album{display:flex;flex-direction:column;gap:22px}
+  /* ---------- album ---------- */
+  .album{display:flex;flex-direction:column;gap:20px}
   .frame{
-    background:var(--ivory);border-radius:20px;padding:10px 10px 16px;
-    box-shadow:0 20px 46px -16px rgba(90,20,40,.45), 0 0 0 1px rgba(198,162,74,.22);
+    background:var(--cream);border-radius:20px;padding:10px 10px 14px;
+    box-shadow:0 20px 44px -18px rgba(140,70,10,.55), 0 0 0 3px rgba(255,255,255,.5);
   }
-  .frame .ph{border-radius:14px;overflow:hidden}
+  .frame:nth-child(3n+1){transform:rotate(-.6deg)}
+  .frame:nth-child(3n){transform:rotate(.6deg)}
+  .frame .ph{border-radius:14px;overflow:hidden;background:var(--cream-lt)}
   .frame .ph img{width:100%;height:auto}
-  .frame .cap{padding:14px 8px 2px}
-  .frame .cap .tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);font-weight:600}
-  .frame .cap p{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--deep);font-size:17px;line-height:1.45;margin-top:4px}
+  .frame .cap{padding:12px 8px 0}
+  .frame .cap .tag{
+    display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    color:var(--amber);background:var(--cream-lt);border-radius:999px;padding:4px 10px;
+  }
+  .frame .cap p{font-size:15px;line-height:1.5;color:var(--ink-soft);margin-top:7px}
 
+  /* ---------- closing ---------- */
   .closing{
-    background:var(--ivory);border-radius:20px;padding:26px 22px;text-align:center;
-    box-shadow:0 20px 46px -16px rgba(90,20,40,.45), 0 0 0 1px rgba(198,162,74,.22);
+    background:var(--cream);border-radius:22px;padding:24px 20px;text-align:center;
+    box-shadow:0 20px 44px -18px rgba(140,70,10,.55), 0 0 0 3px rgba(255,255,255,.5);
   }
-  .closing .heart{font-size:26px;display:inline-block;animation:beat 1.3s ease-in-out infinite}
-  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.22)}30%{transform:scale(1)}45%{transform:scale(1.16)}60%{transform:scale(1)}}
-  @media (prefers-reduced-motion:reduce){.closing .heart{animation:none}}
-  .closing p{
-    font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--deep);
-    font-size:clamp(18px,5vw,21px);line-height:1.55;margin-top:10px;max-width:32ch;margin-left:auto;margin-right:auto;
-  }
-  .closing .sign{margin-top:14px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose)}
+  .closing .cake{font-size:30px;display:inline-block;animation:pop 2.4s ease-in-out infinite}
+  @keyframes pop{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-6px) rotate(-6deg)}60%{transform:translateY(-2px) rotate(6deg)}}
+  @media (prefers-reduced-motion:reduce){.closing .cake{animation:none}}
+  .closing h2{font-family:'Baloo 2',cursive;font-weight:700;color:var(--rust);font-size:23px;margin-top:6px;line-height:1.25}
+  .closing p{font-size:16px;line-height:1.6;color:var(--ink-soft);margin-top:9px;max-width:34ch;margin-left:auto;margin-right:auto}
+  .closing .sign{margin-top:14px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);font-weight:600}
 
-  footer{text-align:center;padding:20px 0 6px}
-  footer p{font-family:'Cormorant Garamond',serif;font-style:italic;color:#FFF0F4;font-size:14px;text-shadow:0 2px 8px rgba(0,0,0,.15)}
+  footer{text-align:center;padding:22px 0 6px}
+  footer p{font-family:'Baloo 2',cursive;font-weight:600;color:#FFF0D6;font-size:14px;text-shadow:0 2px 8px rgba(150,70,10,.3)}
 </style>
 </head>
 <body>
-  <div class="petals" id="petals" aria-hidden="true"></div>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
 
   <div class="wrap">
 
     <div class="hero">
-      <p class="eyebrow">a little celebration for</p>
-      <h1>Ruchitha</h1>
-      <p class="sub">Every year that passes, the world gets a little luckier to have you in it.</p>
+      <p class="eyebrow">from the whole gang</p>
+      <h1>Happy Birthday<br>Ruchitha!</h1>
+      <p class="sub"><span class="sunicon">☀️</span><br>our favourite ray of sunshine</p>
     </div>
 
     <div class="count-card">
       <div class="count-label">Counting down to</div>
-      <div class="count-date">1st August</div>
+      <div class="count-date">1st August 🎂</div>
       <div class="timer" id="timer">
         <div class="tblock"><div class="tnum" id="d">00</div><div class="tlab">days</div></div>
         <div class="tblock"><div class="tnum" id="h">00</div><div class="tlab">hrs</div></div>
         <div class="tblock"><div class="tnum" id="m">00</div><div class="tlab">min</div></div>
         <div class="tblock"><div class="tnum" id="s">00</div><div class="tlab">sec</div></div>
       </div>
-      <div class="arrived" id="arrived">It's here — happy birthday, Ruchitha! 🎂🩷</div>
+      <div class="arrived" id="arrived">It's here — happy birthday, Ruchitha! 🎉🎂</div>
     </div>
 
     <section>
-      <p class="stitle">why she's one of a kind <span class="dot">•</span></p>
+      <p class="stitle">The Wishes Wall 💌</p>
+      <p class="ssub">everyone had something to say</p>
+      <div class="wishes" id="wishes"></div>
+      <p class="tally" id="tally"></p>
+    </section>
+
+    <section>
+      <p class="stitle">Why she's the group's favourite ☀️</p>
+      <p class="ssub">unanimously agreed, no voting needed</p>
       <div class="traits">
-        <div class="trait"><span class="ic">💖</span><h3>Beautiful, inside and out</h3><p>The kind of pretty that shows up even more in how she treats people.</p></div>
-        <div class="trait"><span class="ic">🌸</span><h3>A heart so soft, it's touching</h3><p>She feels things fully and cares without holding back — rare, and never lost on the people around her.</p></div>
-        <div class="trait"><span class="ic">🪂</span><h3>Fearless adventurer</h3><p>Heights, new places, new challenges — she leans in when most people step back.</p></div>
-        <div class="trait"><span class="ic">🌍</span><h3>Lives in her own world</h3><p>Curious, a little dreamy, completely herself — and better for it.</p></div>
+        <div class="trait"><span class="ic">😄</span><h3>The mood-lifter</h3><p>Whatever the day looks like, it gets better the second she walks in laughing.</p></div>
+        <div class="trait"><span class="ic">🤝</span><h3>The one who actually checks in</h3><p>Remembers the small stuff, asks how it went, and genuinely wants to know.</p></div>
+        <div class="trait"><span class="ic">🪂</span><h3>First to say "let's do it"</h3><p>Heights, trips, last-minute plans — she's already in before the rest of us finish reading the message.</p></div>
+        <div class="trait"><span class="ic">📸</span><h3>Reason half our photos exist</h3><p>Every outing, every ethnic day, every random evening — she's the one making it a memory.</p></div>
       </div>
     </section>
 
     <section>
-      <p class="stitle">her cosmic side <span class="dot">•</span></p>
-      <div class="zodiac">
-        <div class="zrow">
-          <div class="zitem"><div class="zicon">♌</div><div class="zlab">Sign</div><div class="zval">Leo</div></div>
-          <div class="zitem"><div class="zicon">❤️</div><div class="zlab">Stone</div><div class="zval">Ruby</div></div>
-          <div class="zitem"><div class="zicon">🌻</div><div class="zlab">Flower</div><div class="zval">Sunflower</div></div>
+      <p class="stitle">Certified sunshine stats 🌻</p>
+      <p class="ssub">the official records</p>
+      <div class="facts">
+        <div class="frow">
+          <div class="fitem"><div class="ficon">♌</div><div class="flab">Sign</div><div class="fval">Leo</div></div>
+          <div class="fitem"><div class="ficon">🎂</div><div class="flab">Big day</div><div class="fval">1 Aug</div></div>
+          <div class="fitem"><div class="ficon">🌻</div><div class="flab">Flower</div><div class="fval">Sunflower</div></div>
         </div>
-        <div class="zline">Born a Leo — warm, magnetic, and naturally brave. It's exactly why heights and challenges never scare her; fire signs are built to lean into life, not away from it.</div>
+        <div class="fline">A Leo, obviously — warm, loud in the best way, and always up for the plan. Explains the energy, the adventures, and why no group photo feels complete without her in it.</div>
       </div>
     </section>
 
     <section>
-      <p class="stitle">a few favourite moments <span class="dot">•</span></p>
+      <p class="stitle">Receipts from the gang 📷</p>
+      <p class="ssub">a few favourite moments</p>
       <div class="album" id="album"></div>
     </section>
 
     <section>
       <div class="closing">
-        <div class="heart">🩷</div>
-        <p>This little corner of the internet exists for one reason — so you always have a place that reminds you exactly how loved, how admired, and how special you are. Happy birthday, in advance.</p>
-        <div class="sign">— with all my heart</div>
+        <div class="cake">🎂</div>
+        <h2>Have the best one, Ruchitha!</h2>
+        <p>Here's to more spontaneous plans, more terrible group selfies, more chai runs and more of that laugh we can hear from across the floor. Thanks for being the best part of this crew.</p>
+        <div class="sign">— from all of us 🎉</div>
       </div>
     </section>
 
     <footer>
-      <p>made just for you, Ruchitha 🩷</p>
+      <p>made by the gang, for our sunshine ☀️</p>
     </footer>
   </div>
 
 <script>
-  const pc=document.getElementById('petals');
-  const shapes=['🩷','🌸','✨','💗'];
-  for(let i=0;i<16;i++){
-    const p=document.createElement('div');
-    p.className='petal';
-    p.textContent=shapes[Math.floor(Math.random()*shapes.length)];
-    p.style.left=Math.random()*100+'vw';
-    p.style.fontSize=(10+Math.random()*10)+'px';
-    p.style.animationDuration=(11+Math.random()*12)+'s';
-    p.style.animationDelay=(-Math.random()*18)+'s';
-    pc.appendChild(p);
+  /* ---------- confetti ---------- */
+  const cc=document.getElementById('confetti');
+  const shapes=['☀️','🎉','✨','🌻','🎊','🎂'];
+  for(let i=0;i<18;i++){
+    const b=document.createElement('div');
+    b.className='bit';
+    b.textContent=shapes[Math.floor(Math.random()*shapes.length)];
+    b.style.left=Math.random()*100+'vw';
+    b.style.fontSize=(11+Math.random()*11)+'px';
+    b.style.animationDuration=(11+Math.random()*12)+'s';
+    b.style.animationDelay=(-Math.random()*18)+'s';
+    cc.appendChild(b);
   }
 
+  /* ---------- countdown to 1 August, IST ---------- */
   function nextBirthday(){
     const now=new Date();
     const y=now.getFullYear();
@@ -233,24 +310,84 @@
       clearInterval(iv);
       return;
     }
-    const days=Math.floor(diff/86400000);
-    const hrs=Math.floor((diff%86400000)/3600000);
-    const min=Math.floor((diff%3600000)/60000);
-    const sec=Math.floor((diff%60000)/1000);
-    dEl.textContent=pad(days);hEl.textContent=pad(hrs);mEl.textContent=pad(min);sEl.textContent=pad(sec);
+    dEl.textContent=pad(Math.floor(diff/86400000));
+    hEl.textContent=pad(Math.floor((diff%86400000)/3600000));
+    mEl.textContent=pad(Math.floor((diff%3600000)/60000));
+    sEl.textContent=pad(Math.floor((diff%60000)/1000));
   }
   tick();
   const iv=setInterval(tick,1000);
 
-  // the album — edit this array any time to add, remove, or reorder moments
+  /* =========================================================
+     THE WISHES WALL
+     Add a wish: copy a line and fill in name / role / text.
+     Leave the remaining count as `openSlots` for wishes still coming.
+     ========================================================= */
+  const wishes=[
+    {
+      name:'Vibha',
+      role:'the gang',
+      text:'Happy Birthday to our favorite ray of sunshine, Ruchitha! ☀️🎉 May your smile stay as bright, your heart as kind, and your cake as big as your birthday wishes! 🎂'
+    },
+    {
+      name:'Tatsat',
+      role:'the gang',
+      text:'Wishing the happiest birthday to our absolute favorite, Ruchitha! ☀️🥳 Keep spreading that amazing vibe, wear that gorgeous smile, and enjoy every single slice of your day! 🍰'
+    }
+  ];
+
+  // how many friends still have a wish to add (total wall = wishes + openSlots)
+  const openSlots=6;
+
+  const avatarColors=['#F5A623','#FF6F5E','#2E9E8F','#7B5EA7','#E07B12','#4A90D9','#D9538C','#5FA83C'];
+  const wishesEl=document.getElementById('wishes');
+
+  function esc(s){
+    return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  }
+
+  wishes.forEach((w,i)=>{
+    const el=document.createElement('div');
+    el.className='wish';
+    const color=avatarColors[i%avatarColors.length];
+    el.innerHTML=
+      '<div class="quote">&ldquo;</div>'+
+      '<p>'+esc(w.text)+'</p>'+
+      '<div class="from">'+
+        '<div class="av" style="background:'+color+'">'+esc(w.name.charAt(0).toUpperCase())+'</div>'+
+        '<div><div class="who">'+esc(w.name)+'</div><div class="role">'+esc(w.role)+'</div></div>'+
+      '</div>';
+    wishesEl.appendChild(el);
+  });
+
+  for(let i=0;i<openSlots;i++){
+    const el=document.createElement('div');
+    el.className='wish open';
+    el.innerHTML=
+      '<div class="slot">saving a spot for you ✨</div>'+
+      '<div class="hint">wish loading&hellip;</div>';
+    wishesEl.appendChild(el);
+  }
+
+  const total=wishes.length+openSlots;
+  document.getElementById('tally').textContent=
+    wishes.length+' of '+total+' wishes in — the rest are on their way 💛';
+
+  /* =========================================================
+     THE ALBUM — edit freely to add, remove or reorder moments
+     ========================================================= */
   const moments=[
-    { src:'photos/candid.jpg', tag:'caught off guard', cap:'Mid phone-call, not even trying — and still effortlessly you. That\u2019s the thing about real beauty, it shows up in the moments no one\u2019s posing for.' },
-    { src:'photos/blue-lehenga.jpg', tag:'festive & glowing', cap:'That blue and green set on you is unfair, honestly. Quiet confidence, dressed beautifully.' },
-    { src:'photos/saree-front.jpg', tag:'pure elegance', cap:'Gold and peach silk, and you carrying it like it was made for exactly this moment. Absolutely stunning.' },
-    { src:'photos/saree-portrait.jpg', tag:'that smile', cap:'This is the smile that makes every room better the second you walk in.' },
-    { src:'photos/saree-back.jpg', tag:'even from behind', cap:'Didn\u2019t even need to see your face for this one to be beautiful. That\u2019s just how you carry yourself.' },
-    { src:'photos/group-day.jpg', tag:'surrounded by love', cap:'This is you on a good day — surrounded by people who adore you exactly as much as they should.' },
-    { src:'photos/group-evening.jpg', tag:'golden evenings', cap:'The kind of evening you make better just by being in it.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.06.52 PM.jpeg', tag:'ethnic day', cap:'The whole squad, dressed up and standing far too neatly for a group this chaotic.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.07.05 PM.jpeg', tag:'blue crew', cap:'Nobody planned the colour coordination. Somehow it happened anyway.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.07.23 PM.jpeg', tag:'candid > posed', cap:'The photographer said "one serious shot." This is what we got instead, and honestly, it is better.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.06.22 PM.jpeg', tag:'evening plans', cap:'The classic post-work meet-up. Peace signs mandatory.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.08.23 PM.jpeg', tag:'staircase selfie', cap:'Nine people, one narrow staircase, one very brave arm holding the phone.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.08.36 PM.jpeg', tag:'road trip', cap:'Matching hats were not part of the plan. Committing to them fully absolutely was.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.08.54 PM.jpeg', tag:'zero fear', cap:'Strapped in and grinning before it even started. The rest of us were still deciding.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.12.06 PM.jpeg', tag:'the full gang', cap:'Drinks in hand, everyone present, nobody wanting to head back yet. Perfect day.' },
+    { file:'group-day.jpg', tag:'trip mode', cap:'Ready before anyone else, as usual, waiting on the rest of us to show up.' },
+    { file:'group-evening.jpg', tag:'golden hour', cap:'Middle of the road, middle of the city, all of us squeezed into one frame.' },
+    { file:'candid.jpg', tag:'caught in 4k', cap:'On a call again. Some things about our sunshine never change. 😄' }
   ];
 
   const album=document.getElementById('album');
@@ -258,8 +395,8 @@
     const el=document.createElement('div');
     el.className='frame';
     el.innerHTML=
-      '<div class="ph"><img src="'+m.src+'" alt="" loading="lazy"/></div>'+
-      '<div class="cap"><div class="tag">'+m.tag+'</div><p>'+m.cap+'</p></div>';
+      '<div class="ph"><img src="photos/'+encodeURIComponent(m.file)+'" alt="" loading="lazy"/></div>'+
+      '<div class="cap"><span class="tag">'+esc(m.tag)+'</span><p>'+esc(m.cap)+'</p></div>';
     album.appendChild(el);
   });
 </script>
