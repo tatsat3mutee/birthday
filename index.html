@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#F5A623" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Happy Birthday, Ruchitha!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --sun:#F5A623;
+    --amber:#E07B12;
+    --rust:#B85C1E;
+    --cream:#FFF9EF;
+    --cream-lt:#FFF3DC;
+    --ink:#42331F;
+    --ink-soft:#6B5942;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{
+    font-family:'Jost',system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    color:var(--ink);
+    background:radial-gradient(130% 75% at 50% -12%, #FFE9A8 0%, #FFC864 38%, #FF9F45 68%, #F5813A 100%);
+    background-attachment:fixed;
+    min-height:100vh;min-height:100dvh;
+    overflow-x:hidden;
+    padding-bottom:max(28px, env(safe-area-inset-bottom));
+  }
+  img{max-width:100%;display:block}
+
+  .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+  .bit{position:absolute;top:-30px;animation:fall linear infinite;opacity:.65}
+  @keyframes fall{0%{transform:translateY(-30px) rotate(0)}100%{transform:translateY(115vh) rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.bit{display:none}}
+
+  .wrap{position:relative;z-index:1;max-width:540px;margin:0 auto;padding:max(20px, env(safe-area-inset-top)) 18px 6px}
+
+  /* ---------- hero ---------- */
+  .hero{text-align:center;padding:4px 0 2px}
+  .eyebrow{
+    display:inline-block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+    color:#7A3E0B;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8);
+    padding:5px 13px;border-radius:999px;
+  }
+  h1{
+    font-family:'Baloo 2',cursive;font-weight:800;
+    font-size:clamp(36px,11vw,54px);line-height:1.06;color:#fff;
+    text-shadow:0 3px 0 rgba(184,92,30,.35), 0 8px 24px rgba(150,70,10,.35);
+    margin-top:7px;
+  }
+  .sub{
+    font-family:'Baloo 2',cursive;font-weight:600;color:#FFF6E4;
+    font-size:clamp(15px,4.2vw,17px);margin-top:3px;
+    text-shadow:0 2px 10px rgba(150,70,10,.3);
+  }
+  .sunicon{display:inline-block;animation:spin 14s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.sunicon{animation:none}}
+
+  /* ---------- countdown ---------- */
+  .count-card{
+    margin:14px 0;background:var(--cream);border-radius:20px;
+    padding:13px 14px 14px;text-align:center;
+    box-shadow:0 16px 36px -16px rgba(140,70,10,.5), 0 0 0 3px rgba(255,255,255,.5);
+  }
+  .count-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:600}
+  .count-date{font-family:'Baloo 2',cursive;font-weight:700;color:var(--rust);font-size:18px;line-height:1.2}
+  .timer{display:flex;justify-content:center;gap:7px;margin-top:9px}
+  .tblock{background:var(--cream-lt);border:2px solid rgba(245,166,35,.35);border-radius:13px;min-width:56px;padding:7px 4px}
+  .tnum{font-family:'Baloo 2',cursive;font-weight:800;font-size:25px;color:var(--rust);line-height:1;font-variant-numeric:tabular-nums}
+  .tlab{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-top:2px;font-weight:600}
+  .arrived{display:none;font-family:'Baloo 2',cursive;font-weight:700;color:var(--rust);font-size:19px;margin-top:8px;line-height:1.3}
+
+  /* ---------- sections ---------- */
+  section{margin:22px 0}
+  .stitle{
+    text-align:center;font-family:'Baloo 2',cursive;font-weight:700;
+    color:#fff;font-size:clamp(20px,5.6vw,25px);line-height:1.2;
+    text-shadow:0 3px 0 rgba(184,92,30,.3), 0 8px 20px rgba(150,70,10,.3);
+  }
+  .ssub{
+    text-align:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:#FFF0D6;font-weight:500;margin-top:2px;margin-bottom:12px;
+  }
+
+  /* ---------- swipe carousels ---------- */
+  .rail{
+    display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    padding:3px 18px 4px;margin:0 -18px;
+  }
+  .rail::-webkit-scrollbar{display:none}
+  .rail > *{scroll-snap-align:center;flex:0 0 88%}
+  .swipe{
+    text-align:center;margin-top:8px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:#FFF0D6;font-weight:500;
+  }
+  .swipe b{font-family:'Baloo 2',cursive;font-weight:700;letter-spacing:0;font-size:13px;color:#fff}
+
+  /* ---------- wish cards ---------- */
+  .wish{
+    position:relative;background:var(--cream);border-radius:20px;padding:18px 17px 15px;
+    box-shadow:0 16px 36px -16px rgba(140,70,10,.5), 0 0 0 3px rgba(255,255,255,.5);
+    display:flex;flex-direction:column;min-height:210px;
+  }
+  .wish .quote{
+    position:absolute;top:-4px;left:13px;font-family:'Baloo 2',cursive;font-weight:800;
+    font-size:50px;line-height:1;color:rgba(245,166,35,.26);pointer-events:none;
+  }
+  .wish p{position:relative;font-size:15px;line-height:1.55;flex:1}
+  .wish .from{
+    display:flex;align-items:center;gap:9px;margin-top:12px;padding-top:11px;
+    border-top:2px dashed rgba(245,166,35,.4);
+  }
+  .wish .av{
+    width:32px;height:32px;border-radius:50%;flex:none;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Baloo 2',cursive;font-weight:700;font-size:14px;color:#fff;
+    box-shadow:0 4px 10px -3px rgba(0,0,0,.3);
+  }
+  .wish .who{font-family:'Baloo 2',cursive;font-weight:700;font-size:16px;color:var(--rust);line-height:1.1}
+  .wish .role{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+  .wish.open{
+    background:rgba(255,249,239,.35);border:2px dashed rgba(255,255,255,.85);box-shadow:none;
+    align-items:center;justify-content:center;text-align:center;
+  }
+  .wish.open .big{font-size:26px}
+  .wish.open .slot{font-family:'Baloo 2',cursive;font-weight:700;color:#fff;font-size:17px;margin-top:5px;text-shadow:0 2px 8px rgba(150,70,10,.35)}
+  .wish.open .hint{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#FFF0D6;margin-top:3px}
+
+  /* ---------- traits 2x2 ---------- */
+  .traits{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .trait{
+    background:var(--cream);border-radius:16px;padding:13px 12px;
+    box-shadow:0 12px 28px -14px rgba(140,70,10,.5), 0 0 0 3px rgba(255,255,255,.45);
+  }
+  .trait .ic{font-size:19px;line-height:1}
+  .trait h3{font-family:'Baloo 2',cursive;font-weight:700;color:var(--rust);font-size:14.5px;line-height:1.2;margin-top:5px}
+  .trait p{font-size:12.5px;line-height:1.45;color:var(--ink-soft);margin-top:3px}
+
+  /* ---------- facts ---------- */
+  .facts{
+    background:linear-gradient(135deg,#FF9F45,#F5813A);
+    border-radius:18px;padding:14px 14px;color:#fff;
+    box-shadow:0 14px 32px -16px rgba(140,70,10,.6), 0 0 0 3px rgba(255,255,255,.45);
+  }
+  .frow{display:flex;justify-content:space-between;gap:8px;text-align:center}
+  .fitem{flex:1}
+  .ficon{font-size:19px}
+  .flab{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#FFE7B8;margin-top:3px;font-weight:600}
+  .fval{font-family:'Baloo 2',cursive;font-weight:700;font-size:15px;line-height:1.2}
+  .fline{
+    margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.28);
+    font-size:12.5px;line-height:1.5;color:#FFF4E0;text-align:center;
+  }
+
+  /* ---------- photo slides ---------- */
+  .slide{
+    background:var(--cream);border-radius:18px;padding:8px 8px 11px;
+    box-shadow:0 16px 36px -16px rgba(140,70,10,.5), 0 0 0 3px rgba(255,255,255,.5);
+  }
+  .slide .ph{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--cream-lt)}
+  .slide .ph img{width:100%;height:100%;object-fit:cover}
+  .slide .cap{padding:9px 5px 0;min-height:62px}
+  .slide .tag{
+    display:inline-block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    color:var(--amber);background:var(--cream-lt);border-radius:999px;padding:3px 9px;
+  }
+  .slide .cap p{font-size:13px;line-height:1.45;color:var(--ink-soft);margin-top:5px}
+
+  /* ---------- closing ---------- */
+  .closing{
+    background:var(--cream);border-radius:20px;padding:19px 17px;text-align:center;
+    box-shadow:0 16px 36px -16px rgba(140,70,10,.5), 0 0 0 3px rgba(255,255,255,.5);
+  }
+  .closing .cake{font-size:26px;display:inline-block;animation:pop 2.4s ease-in-out infinite}
+  @keyframes pop{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-6px) rotate(-6deg)}60%{transform:translateY(-2px) rotate(6deg)}}
+  @media (prefers-reduced-motion:reduce){.closing .cake{animation:none}}
+  .closing h2{font-family:'Baloo 2',cursive;font-weight:700;color:var(--rust);font-size:20px;margin-top:3px;line-height:1.25}
+  .closing p{font-size:14px;line-height:1.55;color:var(--ink-soft);margin-top:7px;max-width:36ch;margin-left:auto;margin-right:auto}
+  .closing .sign{margin-top:11px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);font-weight:600}
+
+  footer{text-align:center;padding:14px 0 4px}
+  footer p{font-family:'Baloo 2',cursive;font-weight:600;color:#FFF0D6;font-size:13px;text-shadow:0 2px 8px rgba(150,70,10,.3)}
+</style>
+</head>
+<body>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+
+  <div class="wrap">
+
+    <div class="hero">
+      <p class="eyebrow">from the whole gang</p>
+      <h1>Happy Birthday<br>Ruchitha!</h1>
+      <p class="sub"><span class="sunicon">☀️</span> our favourite ray of sunshine</p>
+    </div>
+
+    <div class="count-card">
+      <div class="count-label">Counting down to</div>
+      <div class="count-date">1st August 🎂</div>
+      <div class="timer" id="timer">
+        <div class="tblock"><div class="tnum" id="d">00</div><div class="tlab">days</div></div>
+        <div class="tblock"><div class="tnum" id="h">00</div><div class="tlab">hrs</div></div>
+        <div class="tblock"><div class="tnum" id="m">00</div><div class="tlab">min</div></div>
+        <div class="tblock"><div class="tnum" id="s">00</div><div class="tlab">sec</div></div>
+      </div>
+      <div class="arrived" id="arrived">It's here — happy birthday, Ruchitha! 🎉🎂</div>
+    </div>
+
+    <section>
+      <p class="stitle">The Wishes Wall 💌</p>
+      <p class="ssub">everyone had something to say</p>
+      <div class="rail" id="wishes"></div>
+      <p class="swipe" id="wishCount"></p>
+    </section>
+
+    <section>
+      <p class="stitle">Why she's the group's favourite ☀️</p>
+      <p class="ssub">unanimous, no voting needed</p>
+      <div class="traits">
+        <div class="trait"><div class="ic">😄</div><h3>The mood-lifter</h3><p>Any day gets better the second she walks in laughing.</p></div>
+        <div class="trait"><div class="ic">🤝</div><h3>Actually checks in</h3><p>Remembers the small stuff and genuinely wants to know how it went.</p></div>
+        <div class="trait"><div class="ic">🪂</div><h3>First to say "let's go"</h3><p>Already in before the rest of us finish reading the message.</p></div>
+        <div class="trait"><div class="ic">📸</div><h3>Why our album exists</h3><p>Every outing, every ethnic day — she turns it into a memory.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="facts">
+        <div class="frow">
+          <div class="fitem"><div class="ficon">♌</div><div class="flab">Sign</div><div class="fval">Leo</div></div>
+          <div class="fitem"><div class="ficon">🎂</div><div class="flab">Big day</div><div class="fval">1 Aug</div></div>
+          <div class="fitem"><div class="ficon">🌻</div><div class="flab">Flower</div><div class="fval">Sunflower</div></div>
+        </div>
+        <div class="fline">A Leo, obviously — warm, loud in the best way, always up for the plan. Explains the energy, and why no group photo feels complete without her in it.</div>
+      </div>
+    </section>
+
+    <section>
+      <p class="stitle">Receipts from the gang 📷</p>
+      <p class="ssub">a few favourite moments</p>
+      <div class="rail" id="album"></div>
+      <p class="swipe" id="photoCount"></p>
+    </section>
+
+    <section>
+      <div class="closing">
+        <div class="cake">🎂</div>
+        <h2>Have the best one, Ruchitha!</h2>
+        <p>Here's to more spontaneous plans, more terrible group selfies, more chai runs and more of that laugh we can hear from across the floor. Thanks for being the best part of this crew.</p>
+        <div class="sign">— from all of us 🎉</div>
+      </div>
+    </section>
+
+    <footer>
+      <p>made by the gang, for our sunshine ☀️</p>
+    </footer>
+  </div>
+
+<script>
+  /* ---------- confetti ---------- */
+  const cc=document.getElementById('confetti');
+  const shapes=['☀️','🎉','✨','🌻','🎊','🎂'];
+  for(let i=0;i<16;i++){
+    const b=document.createElement('div');
+    b.className='bit';
+    b.textContent=shapes[Math.floor(Math.random()*shapes.length)];
+    b.style.left=Math.random()*100+'vw';
+    b.style.fontSize=(11+Math.random()*11)+'px';
+    b.style.animationDuration=(11+Math.random()*12)+'s';
+    b.style.animationDelay=(-Math.random()*18)+'s';
+    cc.appendChild(b);
+  }
+
+  function esc(s){
+    return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  }
+
+  /* ---------- countdown to 1 August, IST ---------- */
+  function nextBirthday(){
+    const now=new Date();
+    const y=now.getFullYear();
+    let target=new Date(Date.UTC(y,7,1,0,0,0)-5.5*3600*1000);
+    if(target.getTime()<now.getTime()){
+      target=new Date(Date.UTC(y+1,7,1,0,0,0)-5.5*3600*1000);
+    }
+    return target;
+  }
+  const target=nextBirthday();
+  const dEl=document.getElementById('d'),hEl=document.getElementById('h'),mEl=document.getElementById('m'),sEl=document.getElementById('s');
+  const timerEl=document.getElementById('timer'),arrivedEl=document.getElementById('arrived');
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    const diff=target.getTime()-Date.now();
+    if(diff<=0){
+      timerEl.style.display='none';
+      arrivedEl.style.display='block';
+      clearInterval(iv);
+      return;
+    }
+    dEl.textContent=pad(Math.floor(diff/86400000));
+    hEl.textContent=pad(Math.floor((diff%86400000)/3600000));
+    mEl.textContent=pad(Math.floor((diff%3600000)/60000));
+    sEl.textContent=pad(Math.floor((diff%60000)/1000));
+  }
+  tick();
+  const iv=setInterval(tick,1000);
+
+  /* =========================================================
+     THE WISHES WALL — swipe left/right
+     To add a wish: copy a block, fill in name / role / text,
+     and drop `openSlots` by one.
+     ========================================================= */
+  const wishes=[
+    {
+      name:'Vibha',
+      role:'the gang',
+      text:'Happy Birthday to our favorite ray of sunshine, Ruchitha! ☀️🎉 May your smile stay as bright, your heart as kind, and your cake as big as your birthday wishes! 🎂'
+    },
+    {
+      name:'Tatsat',
+      role:'the gang',
+      text:'Wishing the happiest birthday to our absolute favorite, Ruchitha! ☀️🥳 Keep spreading that amazing vibe, wear that gorgeous smile, and enjoy every single slice of your day! 🍰'
+    }
+  ];
+
+  // friends whose wish is still on the way (total wall = wishes + openSlots)
+  const openSlots=6;
+
+  const avatarColors=['#F5A623','#FF6F5E','#2E9E8F','#7B5EA7','#E07B12','#4A90D9','#D9538C','#5FA83C'];
+  const wishesEl=document.getElementById('wishes');
+
+  wishes.forEach((w,i)=>{
+    const el=document.createElement('div');
+    el.className='wish';
+    el.innerHTML=
+      '<div class="quote">&ldquo;</div>'+
+      '<p>'+esc(w.text)+'</p>'+
+      '<div class="from">'+
+        '<div class="av" style="background:'+avatarColors[i%avatarColors.length]+'">'+esc(w.name.charAt(0).toUpperCase())+'</div>'+
+        '<div><div class="who">'+esc(w.name)+'</div><div class="role">'+esc(w.role)+'</div></div>'+
+      '</div>';
+    wishesEl.appendChild(el);
+  });
+
+  // one card standing in for everyone still to write
+  if(openSlots>0){
+    const el=document.createElement('div');
+    el.className='wish open';
+    el.innerHTML=
+      '<div class="big">✨</div>'+
+      '<div class="slot">'+openSlots+' more wishes<br>on the way</div>'+
+      '<div class="hint">saving a spot for you</div>';
+    wishesEl.appendChild(el);
+  }
+
+  document.getElementById('wishCount').innerHTML=
+    '<b>'+wishes.length+' of '+(wishes.length+openSlots)+'</b> wishes in &nbsp;•&nbsp; swipe →';
+
+  /* =========================================================
+     THE ALBUM — swipe left/right
+     `pos` sets the crop focus when a photo needs it (default centre)
+     ========================================================= */
+  const moments=[
+    { file:'WhatsApp Image 2026-07-30 at 12.25.04 AM.jpeg', pos:'50% 42%', tag:'dressed up', cap:'All of us cleaned up nicely for once. Somebody frame this one.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.06.52 PM.jpeg', pos:'50% 45%', tag:'ethnic day', cap:'The whole squad, standing far too neatly for a group this chaotic.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.07.05 PM.jpeg', pos:'50% 45%', tag:'blue crew', cap:'Nobody planned the colour coordination. It happened anyway.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.07.23 PM.jpeg', pos:'50% 58%', tag:'candid > posed', cap:'They asked for one serious shot. This is what they got, and it is better.' },
+    { file:'WhatsApp Image 2026-07-30 at 12.23.59 AM.jpeg', pos:'50% 45%', tag:'day out', cap:'Somewhere green, everyone tired, nobody willing to admit it.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.12.06 PM.jpeg', pos:'50% 45%', tag:'full gang', cap:'Drinks in hand, everyone present, nobody wanting to head back yet.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.08.36 PM.jpeg', pos:'50% 50%', tag:'road trip', cap:'Matching hats were not the plan. Committing to them fully absolutely was.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.08.54 PM.jpeg', pos:'50% 70%', tag:'zero fear', cap:'Strapped in and grinning before it started. The rest of us were still deciding.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.08.23 PM.jpeg', pos:'50% 45%', tag:'staircase selfie', cap:'Nine people, one narrow staircase, one very brave arm holding the phone.' },
+    { file:'WhatsApp Image 2026-07-29 at 11.06.22 PM.jpeg', pos:'50% 50%', tag:'evening plans', cap:'The classic post-work meet-up. Peace signs mandatory.' },
+    { file:'group-day.jpg', pos:'50% 50%', tag:'trip mode', cap:'Ready before everyone else, waiting on the rest of us to show up.' },
+    { file:'group-evening.jpg', pos:'50% 55%', tag:'golden hour', cap:'Middle of the road, middle of the city, all of us in one frame.' }
+  ];
+
+  const album=document.getElementById('album');
+  moments.forEach(m=>{
+    const el=document.createElement('div');
+    el.className='slide';
+    el.innerHTML=
+      '<div class="ph"><img src="photos/'+encodeURIComponent(m.file)+'" alt="" loading="lazy" '+
+        'style="object-position:'+esc(m.pos||'50% 50%')+'"/></div>'+
+      '<div class="cap"><span class="tag">'+esc(m.tag)+'</span><p>'+esc(m.cap)+'</p></div>';
+    album.appendChild(el);
+  });
+
+  document.getElementById('photoCount').innerHTML=
+    '<b>'+moments.length+'</b> moments &nbsp;•&nbsp; swipe →';
+</script>
+</body>
+</html>
