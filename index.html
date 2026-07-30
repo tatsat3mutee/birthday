@@ -113,6 +113,9 @@
     font-size:50px;line-height:1;color:rgba(245,166,35,.26);pointer-events:none;
   }
   .wish p{position:relative;font-size:15px;line-height:1.55;flex:1}
+  /* longer wishes step down a size so one essay doesn't stretch every card */
+  .wish p.md{font-size:13.5px;line-height:1.5}
+  .wish p.sm{font-size:12.5px;line-height:1.5}
   .wish .from{
     display:flex;align-items:center;gap:9px;margin-top:12px;padding-top:11px;
     border-top:2px dashed rgba(245,166,35,.4);
@@ -429,11 +432,16 @@
       name:'Akash',
       role:'the gang',
       text:'To the girl who brightens every place simply by being there — Happy Birthday, Ruchitha! 🎉 Keep glowing, keep spreading smiles, and never stop being the incredible person you are. You deserve endless happiness and all the beautiful moments life has to offer. 🎂✨'
+    },
+    {
+      name:'Abishek',
+      role:'The Boss',
+      text:'Happy Birthday to the girl who never stops smiling and spreading good vibes! 🎂🎈 Who would have thought I’d find such a wonderful and mature friend in a Gen Z? Your ability to connect with people, adapt to any situation, and light up a room with your positivity is truly admirable. Thank you for being the cheerful, thoughtful and fun person that you are. Wishing you a birthday full of happiness and a year ahead filled with success, adventures, and everything you wish for. Cheers! 🥂'
     }
   ];
 
   // friends whose wish is still on the way (total wall = wishes + openSlots)
-  const openSlots=3;
+  const openSlots=2;
 
   const avatarColors=['#F5A623','#FF6F5E','#2E9E8F','#7B5EA7','#E07B12','#4A90D9','#D9538C','#5FA83C'];
   const wishesEl=document.getElementById('wishes');
@@ -443,7 +451,7 @@
     el.className='wish';
     el.innerHTML=
       '<div class="quote">&ldquo;</div>'+
-      '<p>'+esc(w.text)+'</p>'+
+      '<p class="'+(w.text.length>420?'sm':w.text.length>260?'md':'')+'">'+esc(w.text)+'</p>'+
       '<div class="from">'+
         '<div class="av" style="background:'+avatarColors[i%avatarColors.length]+'">'+esc(w.name.charAt(0).toUpperCase())+'</div>'+
         '<div><div class="who">'+esc(w.name)+'</div><div class="role">'+esc(w.role)+'</div></div>'+
