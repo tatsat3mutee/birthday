@@ -219,6 +219,19 @@
   .closing p{font-size:14px;line-height:1.55;color:var(--ink-soft);margin-top:7px;max-width:36ch;margin-left:auto;margin-right:auto}
   .closing .sign{margin-top:11px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);font-weight:600}
 
+  /* ---------- song toggle ---------- */
+  .sound{
+    position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:45;
+    width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;padding:0;
+    background:var(--cream);font-size:20px;line-height:1;
+    box-shadow:0 12px 26px -8px rgba(140,70,10,.7), 0 0 0 3px rgba(255,255,255,.55);
+    display:none;align-items:center;justify-content:center;
+    transition:transform .16s ease;
+  }
+  .sound.show{display:flex}
+  .sound:active{transform:scale(.92)}
+  .sound.off{background:var(--cream-lt);opacity:.85}
+
   footer{text-align:center;padding:14px 0 4px}
   footer p{font-family:'Baloo 2',cursive;font-weight:600;color:#FFF0D6;font-size:13px;text-shadow:0 2px 8px rgba(150,70,10,.3)}
 
@@ -383,6 +396,8 @@
     <div class="lbnum" id="lbNum"></div>
     <div class="hintclose">tap outside to close</div>
   </div>
+
+  <button class="sound" id="sound" aria-label="Turn the birthday song off">🔊</button>
 
   <div class="confetti" id="confetti" aria-hidden="true"></div>
 
@@ -718,6 +733,89 @@
   }
 
   /* =========================================================
+     THE BIRTHDAY SONG
+     Synthesised as a music box — no audio file, nothing to load.
+     The melody is public domain. Starts on the gate tap (browsers
+     block audio without a gesture) and loops until stopped.
+     ========================================================= */
+  const AC=window.AudioContext||window.webkitAudioContext;
+  const N={C5:523.25,D5:587.33,E5:659.25,F5:698.46,G5:783.99,A5:880,Bb5:932.33,C6:1046.5};
+  const MELODY=[
+    [N.C5,.75],[N.C5,.25],[N.D5,1],[N.C5,1],[N.F5,1],[N.E5,2],
+    [N.C5,.75],[N.C5,.25],[N.D5,1],[N.C5,1],[N.G5,1],[N.F5,2],
+    [N.C5,.75],[N.C5,.25],[N.C6,1],[N.A5,1],[N.F5,1],[N.E5,1],[N.D5,1],
+    [N.Bb5,.75],[N.Bb5,.25],[N.A5,1],[N.F5,1],[N.G5,1],[N.F5,2]
+  ];
+  const BEAT=0.5, REST=1.1;                 // seconds per beat, pause between repeats
+
+  const soundBtn=document.getElementById('sound');
+  let actx=null, master=null, playing=false, loopTimer=null, nextStart=0;
+
+  function noteAt(freq,start,dur){
+    // fundamental plus a quieter octave gives it the music-box shimmer
+    [[freq,1],[freq*2,.28]].forEach(([f,amp])=>{
+      const o=actx.createOscillator(), g=actx.createGain();
+      o.type='triangle';
+      o.frequency.value=f;
+      const ring=Math.max(dur,.38)*1.5;
+      g.gain.setValueAtTime(.0001,start);
+      g.gain.exponentialRampToValueAtTime(amp,start+.012);
+      g.gain.exponentialRampToValueAtTime(.0001,start+ring);
+      o.connect(g); g.connect(master);
+      o.start(start);
+      o.stop(start+ring+.05);
+    });
+  }
+
+  function scheduleSong(from){
+    let t=from;
+    MELODY.forEach(([f,b])=>{ noteAt(f,t,b*BEAT); t+=b*BEAT; });
+    return t+REST;
+  }
+
+  function loopTick(){
+    if(!playing || !actx) return;
+    nextStart=scheduleSong(Math.max(actx.currentTime+.08, nextStart));
+    loopTimer=setTimeout(loopTick, Math.max(200,(nextStart-actx.currentTime)*1000-200));
+  }
+
+  function playSong(){
+    if(!AC) return;                          // no Web Audio: page just stays silent
+    if(!actx){
+      actx=new AC();
+      master=actx.createGain();
+      master.gain.value=.18;
+      master.connect(actx.destination);
+    }
+    if(actx.state==='suspended') actx.resume();
+    playing=true; nextStart=0;
+    soundBtn.textContent='🔊';
+    soundBtn.classList.remove('off');
+    soundBtn.setAttribute('aria-label','Turn the birthday song off');
+    loopTick();
+  }
+
+  function stopSong(){
+    playing=false;
+    clearTimeout(loopTimer);
+    if(actx){
+      // silence notes already scheduled ahead, then tear the context down
+      try{
+        master.gain.cancelScheduledValues(actx.currentTime);
+        master.gain.setTargetAtTime(0,actx.currentTime,.02);
+      }catch(e){}
+      const dying=actx;
+      actx=null; master=null;
+      setTimeout(()=>{ try{dying.close()}catch(e){} },300);
+    }
+    soundBtn.textContent='🔇';
+    soundBtn.classList.add('off');
+    soundBtn.setAttribute('aria-label','Play the birthday song');
+  }
+
+  soundBtn.addEventListener('click',()=>{ playing?stopSong():playSong(); });
+
+  /* =========================================================
      TAP-TO-OPEN GATE
      ========================================================= */
   const gate=document.getElementById('gate');
@@ -738,6 +836,8 @@
   function openGate(){
     if(gate.classList.contains('gone')) return;
     burst(window.innerWidth/2, window.innerHeight*0.42, 36);
+    playSong();                    // the tap is the gesture browsers require
+    soundBtn.classList.add('show');
     gate.classList.add('gone');
     document.body.classList.remove('locked');
     setTimeout(()=>{gate.style.display='none'},700);
