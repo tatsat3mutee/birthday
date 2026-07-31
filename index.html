@@ -437,11 +437,26 @@
       name:'Abishek',
       role:'The Boss',
       text:'Happy Birthday to the girl who never stops smiling and spreading good vibes! 🎂🎈 Who would have thought I’d find such a wonderful and mature friend in a Gen Z? Your ability to connect with people, adapt to any situation, and light up a room with your positivity is truly admirable. Thank you for being the cheerful, thoughtful and fun person that you are. Wishing you a birthday full of happiness and a year ahead filled with success, adventures, and everything you wish for. Cheers! 🥂'
+    },
+    {
+      name:'Geeta',
+      role:'the gang',
+      text:'Happy Birthday, Ruchitha! 🎉 Wishing you a day filled with laughter, happiness, and all the things that make you smile. 🎂✨'
+    },
+    {
+      name:'Priyanka',
+      role:'the gang',
+      text:'Happy Birthday, dear Ruchitha! 🎉🎂 Wishing you a day filled with love, laughter, and unforgettable moments. May this new year of your life bring you happiness, good health, success, and all the wonderful things you deserve. Keep smiling and shining. Have a fantastic birthday and an incredible year ahead! 🥳💖'
+    },
+    {
+      name:'Prem',
+      role:'the gang',
+      text:'Wishing you a wonderful day filled with happiness and a year ahead full of good health, success, and exciting opportunities. I hope this year brings you continued growth and achievement. Have a fantastic birthday and enjoy your special day! 🎂🎈'
     }
   ];
 
   // friends whose wish is still on the way (total wall = wishes + openSlots)
-  const openSlots=2;
+  const openSlots=0;
 
   const avatarColors=['#F5A623','#FF6F5E','#2E9E8F','#7B5EA7','#E07B12','#4A90D9','#D9538C','#5FA83C'];
   const wishesEl=document.getElementById('wishes');
@@ -470,8 +485,9 @@
     wishesEl.appendChild(el);
   }
 
-  document.getElementById('wishCount').innerHTML=
-    '<b>'+wishes.length+' of '+(wishes.length+openSlots)+'</b> wishes in &nbsp;•&nbsp; swipe →';
+  document.getElementById('wishCount').innerHTML= openSlots>0
+    ? '<b>'+wishes.length+' of '+(wishes.length+openSlots)+'</b> wishes in &nbsp;•&nbsp; swipe →'
+    : '<b>'+wishes.length+'</b> wishes from the gang &nbsp;•&nbsp; swipe →';
 
   /* =========================================================
      THE ALBUM — swipe left/right
