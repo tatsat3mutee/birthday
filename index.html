@@ -262,6 +262,33 @@
     font-size:17.5px;line-height:1.3;color:#5C4526;margin-top:6px;
   }
 
+  /* ---------- word cloud ---------- */
+  .cloud{display:flex;flex-wrap:wrap;justify-content:center;gap:9px 10px;padding:2px 4px}
+  .cloud span{
+    display:inline-block;font-family:'Baloo 2',cursive;font-weight:700;color:#fff;
+    border-radius:999px;padding:6px 14px;line-height:1.1;
+    box-shadow:0 6px 14px -6px rgba(0,0,0,.35);
+  }
+
+  /* ---------- poem ---------- */
+  .poem{
+    position:relative;background:var(--cream);border-radius:20px;padding:24px 20px 20px;
+    box-shadow:0 16px 36px -16px rgba(140,70,10,.5), 0 0 0 3px rgba(255,255,255,.5);
+  }
+  .poem .quote{
+    position:absolute;top:0;left:15px;font-family:'Baloo 2',cursive;font-weight:800;
+    font-size:52px;line-height:1;color:rgba(245,166,35,.26);pointer-events:none;
+  }
+  .poem p{
+    position:relative;font-family:'Caveat',cursive;font-weight:600;
+    color:#5C4526;font-size:19px;line-height:1.75;white-space:pre-line;
+  }
+  .poem .sign{
+    margin-top:12px;padding-top:11px;border-top:2px dashed rgba(245,166,35,.4);
+    text-align:right;font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--amber);font-weight:600;
+  }
+
   /* ---------- closing ---------- */
   .closing{
     background:var(--cream);border-radius:20px;padding:19px 17px;text-align:center;
@@ -514,6 +541,12 @@
     </section>
 
     <section>
+      <p class="stitle">One word for her ☁️</p>
+      <p class="ssub">what the gang keeps saying</p>
+      <div class="cloud" id="cloud"></div>
+    </section>
+
+    <section>
       <div class="facts">
         <div class="frow">
           <div class="fitem"><div class="ficon">♌</div><div class="flab">Sign</div><div class="fval">Leo</div></div>
@@ -529,6 +562,36 @@
       <p class="ssub">a few favourite moments</p>
       <div class="rail" id="album"></div>
       <p class="swipe" id="photoCount"></p>
+    </section>
+
+    <section>
+      <p class="stitle">A poem for you 🖋️</p>
+      <p class="ssub">written with love</p>
+      <div class="poem">
+        <div class="quote">&ldquo;</div>
+        <p>Some people carry sunlight in,
+some people simply are the sun —
+you're the one who turns a dull Tuesday
+into everyone's favourite one.
+
+Every plan feels better with you in it,
+every silence, a little less —
+somehow you hold this loud, mismatched gang
+together, mid-chaos, mid-mess.
+
+You've got a laugh that gives you away
+in every photo we've ever got,
+a five-minute story that turns to an hour,
+and we wouldn't trade it, not one bit, not.
+
+So here's to another year of exactly this —
+same warmth, same wild, same spark,
+same girl who makes the ordinary days
+feel a little less like the dark.
+
+Happy birthday, Ruchitha.</p>
+        <div class="sign">— from all of us 💛</div>
+      </div>
     </section>
 
     <section>
@@ -770,6 +833,25 @@
   document.getElementById('wishCount').innerHTML= openSlots>0
     ? '<b>'+wishes.length+' of '+(wishes.length+openSlots)+'</b> wishes in &nbsp;•&nbsp; swipe, tap to read'
     : '<b>'+wishes.length+'</b> wishes from the gang &nbsp;•&nbsp; swipe, tap to read';
+
+  /* =========================================================
+     WORD CLOUD — what the gang keeps saying about her
+     ========================================================= */
+  const cloudWords=[
+    ['sunshine',22],['loud laugh',18],['loyal',20],['chaos queen',17],
+    ['warm-hearted',18],['spontaneous',16],['glowing',20],['dependable',15],
+    ['iconic',19],['thoughtful',16],['the vibe',21],['unstoppable',15],
+    ['genuine',17],['main character energy',14]
+  ];
+  const cloudEl=document.getElementById('cloud');
+  cloudWords.forEach((w,i)=>{
+    const s=document.createElement('span');
+    s.textContent=w[0];
+    s.style.fontSize=w[1]+'px';
+    s.style.background=avatarColors[i%avatarColors.length];
+    s.style.transform='rotate('+(Math.random()*10-5).toFixed(1)+'deg)';
+    cloudEl.appendChild(s);
+  });
 
   /* a swipe of the wishes rail must not count as a tap on a card */
   let wDragged=false,wPressed=false,wx=0,wy=0;
