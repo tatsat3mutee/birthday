@@ -593,8 +593,8 @@
     mEl.textContent=pad(Math.floor((diff%3600000)/60000));
     sEl.textContent=pad(Math.floor((diff%60000)/1000));
   }
+  let iv=setInterval(tick,1000);
   tick();
-  const iv=setInterval(tick,1000);
 
   /* =========================================================
      THE WISHES WALL — swipe left/right
