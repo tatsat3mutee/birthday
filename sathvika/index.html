@@ -279,22 +279,85 @@
     font-family:'Caveat',cursive;font-size:19px;color:var(--rose);
   }
 
-  /* ---------- traits ---------- */
-  .traits{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  /* ---------- superpower badges ----------
+     One per row rather than a 2x2 grid: the copy is long enough that
+     two narrow columns turn it into a wall of five word lines. */
+  .traits{display:grid;grid-template-columns:1fr;gap:11px}
   .trait{
-    background:var(--card);border-radius:16px;padding:13px 12px;
+    background:var(--card);border-radius:16px;padding:14px 15px;
+    display:flex;gap:13px;align-items:flex-start;
+    border:1px solid rgba(201,162,78,.3);
     box-shadow:0 12px 28px -14px rgba(150,70,95,.5), 0 0 0 3px rgba(255,255,255,.45);
   }
-  .trait .ic{font-size:19px;line-height:1}
-  .trait h3{font-family:'Baloo 2',cursive;font-weight:700;color:var(--rose-deep);font-size:14.5px;line-height:1.2;margin-top:5px}
-  .trait p{font-size:12.5px;line-height:1.45;color:var(--ink-soft);margin-top:3px}
+  .trait .ic{
+    font-size:20px;line-height:1;flex:none;
+    width:42px;height:42px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#FCEFD2,#F2DAA4);
+    box-shadow:inset 0 0 0 2px rgba(201,162,78,.35);
+  }
+  .trait h3{font-family:'Baloo 2',cursive;font-weight:700;color:var(--rose-deep);font-size:16px;line-height:1.15}
+  .trait p{font-size:13px;line-height:1.5;color:var(--ink-soft);margin-top:3px}
 
   /* ---------- closing ---------- */
   .closing{
     background:var(--card);border-radius:20px;padding:19px 17px;text-align:center;
     box-shadow:var(--card-shadow), var(--card-ring);
   }
-  .closing .cake{font-size:26px;display:inline-block;animation:pop 2.4s ease-in-out infinite;cursor:pointer}
+  /* ---------- the candles ----------
+     The candles are drawn in CSS and sit above the cake rather than
+     being aligned to the emoji's own candles, which render differently
+     on every platform and could not be lined up reliably. */
+  .cakewrap{display:inline-block;position:relative}
+  .candle-row{display:flex;justify-content:center;gap:8px;margin-bottom:-6px;position:relative}
+  .candle{
+    width:5px;height:17px;border-radius:3px;position:relative;
+    background:linear-gradient(#FFFFFF,#F7C9CE);
+    box-shadow:0 1px 2px rgba(150,70,95,.25);
+  }
+  .flame{
+    position:absolute;left:50%;top:-14px;width:9px;height:14px;
+    transform:translateX(-50%);transform-origin:50% 100%;
+    border-radius:50% 50% 50% 50% / 62% 62% 38% 38%;
+    background:radial-gradient(circle at 50% 72%, #FFF6C4 0%, #F7B733 52%, #E8632A 100%);
+    box-shadow:0 0 11px 3px rgba(247,183,51,.55);
+    animation:flicker .42s ease-in-out infinite alternate;
+  }
+  @keyframes flicker{
+    from{transform:translateX(-50%) scale(1) rotate(-4deg);opacity:.92}
+    to{transform:translateX(-50%) scale(1.16) rotate(4deg);opacity:1}
+  }
+  .candles-out .flame{
+    animation:none;opacity:0;
+    transform:translateX(-50%) scale(.2) translateY(4px);
+    transition:opacity .4s ease, transform .4s ease;
+  }
+  .smoke{
+    position:absolute;width:7px;height:7px;border-radius:50%;
+    background:rgba(150,140,150,.5);pointer-events:none;
+    animation:puff 1.5s ease-out forwards;
+  }
+  @keyframes puff{
+    0%{opacity:.6;transform:translateY(0) scale(.6)}
+    100%{opacity:0;transform:translateY(-46px) scale(2.1)}
+  }
+  .blow{
+    margin-top:13px;border:0;cursor:pointer;font-family:'Baloo 2',cursive;font-weight:700;
+    font-size:14px;color:#fff;background:linear-gradient(135deg,var(--rose),#C25C80);
+    border-radius:999px;padding:11px 22px;
+    box-shadow:0 10px 22px -8px rgba(184,79,111,.75);
+    transition:transform .16s ease, opacity .3s ease;
+  }
+  .blow:active{transform:scale(.95)}
+  .blow[disabled]{opacity:.5;cursor:default;box-shadow:none}
+  .wishnote{
+    font-family:'Caveat',cursive;font-size:19px;color:var(--rose-deep);
+    margin-top:9px;min-height:0;opacity:0;transition:opacity .5s ease;
+  }
+  .wishnote.show{opacity:1}
+  @media (prefers-reduced-motion:reduce){.flame{animation:none}}
+
+  .closing .cake{font-size:38px;display:inline-block;animation:pop 2.4s ease-in-out infinite;cursor:pointer}
   @keyframes pop{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-6px) rotate(-6deg)}60%{transform:translateY(-2px) rotate(6deg)}}
   @media (prefers-reduced-motion:reduce){.closing .cake{animation:none}}
   .closing h2{font-family:'Baloo 2',cursive;font-weight:700;color:var(--rose-deep);font-size:20px;margin-top:3px;line-height:1.25}
@@ -570,16 +633,25 @@ We're celebrating you across each mile.</p>
     </section>
 
     <section>
-      <p class="stitle">Why she's the group's favourite ✨</p>
-      <p class="ssub">unanimous, no voting needed</p>
+      <p class="stitle">Her superpowers ✨</p>
+      <p class="ssub">independently verified by the whole gang</p>
       <div class="traits" id="traits"></div>
     </section>
 
     <section>
-      <div class="closing">
-        <div class="cake">🎂</div>
+      <div class="closing" id="closing">
+        <div class="cakewrap" id="cakewrap">
+          <div class="candle-row" id="candleRow" aria-hidden="true">
+            <span class="candle"><span class="flame"></span></span>
+            <span class="candle"><span class="flame"></span></span>
+            <span class="candle"><span class="flame"></span></span>
+          </div>
+          <div class="cake">🎂</div>
+        </div>
         <h2>Have the best one, Sathvika!</h2>
         <p>Here is to a year of good news, of plans that somehow always come together, and of you staying exactly as you are through all of it. Whatever changes this year, this bunch is not going anywhere.</p>
+        <button class="blow" id="blowBtn">make a wish, blow them out</button>
+        <p class="wishnote" id="wishNote" role="status"></p>
         <div class="sign">from all of us 🎉</div>
       </div>
     </section>
@@ -634,10 +706,14 @@ We're celebrating you across each mile.</p>
     ],
 
     traits:[
-      { ic:'🌊', title:'The unbothered one', text:'Plans change, she shrugs, and somehow the new plan turns out better.' },
-      { ic:'⚡', title:'Sudden plans',        text:'Decides at six that the evening is happening. It happens.' },
-      { ic:'🎧', title:'Counts us in',        text:'Turns our chaos into something that genuinely looks like choreography.' },
-      { ic:'💛', title:'Softer than she lets on', text:'Listens properly, remembers what you said, and checks back on it later.' }
+      { ic:'💃', title:'The Dance Director',
+        text:'The only person alive with enough patience to teach Tatsat and Akash where their feet go. Two left feet in, actual rhythm out.' },
+      { ic:'⚡', title:'The Sudden Plan',
+        text:'Decides at six that the evening is happening. It happens, and it is always better than whatever we had planned.' },
+      { ic:'🔒', title:'The Safe Vault',
+        text:'Every rant, every low, every thoroughly messy thought. Nothing leaves, and nothing ever gets judged.' },
+      { ic:'🌊', title:'The Unbothered One',
+        text:'Plans collapse, she shrugs, and the whole day quietly reroutes itself around how calm she is about it.' }
     ],
 
     avatarColors:['#D96B8A','#C9A24E','#8A6072','#5FA8A0','#B84F6F','#7B5EA7','#E08A5B','#4A90D9'],
@@ -839,7 +915,8 @@ We're celebrating you across each mile.</p>
   DATA.traits.forEach(t=>{
     const el=document.createElement('div');
     el.className='trait';
-    el.innerHTML='<div class="ic">'+t.ic+'</div><h3>'+esc(t.title)+'</h3><p>'+esc(t.text)+'</p>';
+    el.innerHTML='<div class="ic">'+t.ic+'</div>'+
+                 '<div><h3>'+esc(t.title)+'</h3><p>'+esc(t.text)+'</p></div>';
     traitsEl.appendChild(el);
   });
 
@@ -1016,10 +1093,49 @@ We're celebrating you across each mile.</p>
     if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openGate(); }
   });
 
-  /* tap the cake for one more burst */
-  const cake=document.querySelector('.closing .cake');
-  cake.setAttribute('title','tap me');
+  /* ---------- blow out the candles ---------- */
+  const cake=document.querySelector('.closing .cake'),
+        closingEl=document.getElementById('closing'),
+        candleRow=document.getElementById('candleRow'),
+        blowBtn=document.getElementById('blowBtn'),
+        wishNote=document.getElementById('wishNote');
+  let blown=false;
+
+  function puffSmoke(){
+    if(reduceMotion) return;
+    candleRow.querySelectorAll('.candle').forEach(c=>{
+      const rect=c.getBoundingClientRect(), wrapRect=candleRow.getBoundingClientRect();
+      for(let i=0;i<3;i++){
+        const s=document.createElement('span');
+        s.className='smoke';
+        s.style.left=(rect.left-wrapRect.left+rect.width/2-3+(Math.random()*8-4))+'px';
+        s.style.top='-8px';
+        s.style.animationDelay=(i*.16).toFixed(2)+'s';
+        candleRow.appendChild(s);
+        setTimeout(()=>s.remove(),1800);
+      }
+    });
+  }
+
+  function blowOut(){
+    if(blown) return;
+    blown=true;
+    closingEl.classList.add('candles-out');
+    puffSmoke();
+    const r=cake.getBoundingClientRect();
+    burst(r.left+r.width/2, r.top+r.height/2, 46);
+    // a second wave, so it feels like the whole room cheered
+    setTimeout(()=>burst(window.innerWidth*0.5, window.innerHeight*0.45, 30), 320);
+    blowBtn.textContent='wish sent ✨';
+    blowBtn.disabled=true;
+    wishNote.textContent='Whatever you wished for, we are rooting for it.';
+    wishNote.classList.add('show');
+  }
+
+  blowBtn.addEventListener('click',blowOut);
+  cake.setAttribute('title','make a wish');
   cake.addEventListener('click',()=>{
+    if(!blown){ blowOut(); return; }
     const r=cake.getBoundingClientRect();
     burst(r.left+r.width/2, r.top+r.height/2, 26);
   });
