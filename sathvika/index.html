@@ -26,10 +26,15 @@
     --ink:#5A3242;
     --ink-soft:#8A6072;
 
-    --bg:radial-gradient(130% 75% at 50% -12%, #FFF2F4 0%, #FBD9DF 36%, #F4B5C4 68%, #E79CB2 100%);
-    --on-bg:#FFFFFF;
-    --on-bg-soft:#FFF0F3;
-    --on-bg-deep:#8A3F58;
+    --bg:radial-gradient(130% 75% at 50% -12%, #FFEDF1 0%, #F9CFD9 34%, #F0AABE 66%, #E391A8 100%);
+    /* text sitting on the blush background. It is a light backdrop, so
+       these are deep plum rather than white, which would wash out. */
+    --on-bg:#7A2E48;
+    --on-bg-soft:#8A4460;
+    --on-bg-deep:#7A2E48;
+    /* text sitting on the dark overlays, the lightbox and wish reader */
+    --on-dark:#FFFFFF;
+    --on-dark-soft:#FFE8EE;
 
     --card:var(--cream);
     --card-ring:0 0 0 3px rgba(255,255,255,.55);
@@ -37,7 +42,7 @@
     --dash:rgba(217,107,138,.35);
     --paper:#FFFCF8;
 
-    --title-shadow:0 3px 0 rgba(184,79,111,.3), 0 8px 20px rgba(150,60,90,.3);
+    --title-shadow:0 1px 0 rgba(255,255,255,.6), 0 6px 16px rgba(190,110,140,.3);
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
@@ -85,7 +90,6 @@
   .sub{
     font-family:'Baloo 2',cursive;font-weight:600;color:var(--on-bg-soft);
     font-size:clamp(15px,4.2vw,17px);margin-top:3px;
-    text-shadow:0 2px 10px rgba(150,60,90,.3);
   }
   .spark{display:inline-block;animation:twirl 5s ease-in-out infinite}
   @keyframes twirl{0%,100%{transform:rotate(-12deg) scale(1)}50%{transform:rotate(12deg) scale(1.12)}}
@@ -162,7 +166,7 @@
   }
   .poem p{
     position:relative;font-family:'Caveat',cursive;font-weight:600;
-    color:var(--ink);font-size:19.5px;line-height:1.72;white-space:pre-line;
+    color:var(--ink);font-size:18.5px;line-height:1.7;white-space:pre-line;
   }
   .poem .sign{
     margin-top:12px;padding-top:11px;border-top:2px dashed var(--dash);
@@ -222,11 +226,11 @@
   .wish .who{font-family:'Baloo 2',cursive;font-weight:700;font-size:16px;color:var(--rose-deep);line-height:1.1}
   .wish .role{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
   .wish.open{
-    background:rgba(255,247,242,.35);border:2px dashed rgba(255,255,255,.85);box-shadow:none;
+    background:rgba(255,247,242,.55);border:2px dashed rgba(184,79,111,.5);box-shadow:none;
     align-items:center;justify-content:center;text-align:center;
   }
   .wish.open .big{font-size:26px}
-  .wish.open .slot{font-family:'Baloo 2',cursive;font-weight:700;color:#fff;font-size:17px;margin-top:5px;text-shadow:0 2px 8px rgba(150,60,90,.35)}
+  .wish.open .slot{font-family:'Baloo 2',cursive;font-weight:700;color:var(--on-bg);font-size:17px;margin-top:5px}
   .wish.open .hint{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-bg-soft);margin-top:3px}
 
   /* ---------- photo slides ---------- */
@@ -298,8 +302,8 @@
   .closing .sign{margin-top:11px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);font-weight:600}
 
   footer{text-align:center;padding:14px 0 4px}
-  footer p{font-family:'Baloo 2',cursive;font-weight:600;color:var(--on-bg-soft);font-size:13px;text-shadow:0 2px 8px rgba(150,60,90,.3)}
-  footer a{color:var(--on-bg-soft);text-decoration:none;border-bottom:1px dotted rgba(255,255,255,.5)}
+  footer p{font-family:'Baloo 2',cursive;font-weight:600;color:var(--on-bg-soft);font-size:13px}
+  footer a{color:var(--on-bg-soft);text-decoration:none;border-bottom:1px dotted rgba(122,46,72,.4)}
 
   /* ---------- song toggle ---------- */
   .sound{
@@ -425,7 +429,7 @@
     display:inline-block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
     color:#4A2434;background:var(--champagne);border-radius:999px;padding:3px 10px;margin-top:14px;
   }
-  .lb .lbcap{color:var(--on-bg-soft);font-size:14px;line-height:1.5;text-align:center;margin-top:8px;max-width:40ch}
+  .lb .lbcap{color:var(--on-dark-soft);font-size:14px;line-height:1.5;text-align:center;margin-top:8px;max-width:40ch}
   .lb .lbnum{color:var(--blush);font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-top:9px}
   .lb button{border:0;cursor:pointer;color:#fff;font-family:inherit}
   .lb .x{position:absolute;top:12px;right:14px;background:rgba(255,255,255,.16);width:40px;height:40px;border-radius:50%;font-size:20px;line-height:1}
