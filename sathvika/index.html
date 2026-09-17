@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#E9A0B4" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Happy Birthday, Sathvika!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Caveat:wght@600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     PALETTE. Every colour on this page is a token defined here,
+     so a future celebration page is a copy of this file with a
+     different block of values and a different DATA object below.
+     ============================================================ */
+  :root{
+    --blush:#F7C9CE;
+    --rose:#D96B8A;
+    --rose-deep:#B84F6F;
+    --champagne:#E8C87E;
+    --gold:#C9A24E;
+    --cream:#FFF7F2;
+    --cream-lt:#FFEDE6;
+    --ink:#5A3242;
+    --ink-soft:#8A6072;
+
+    --bg:radial-gradient(130% 75% at 50% -12%, #FFF2F4 0%, #FBD9DF 36%, #F4B5C4 68%, #E79CB2 100%);
+    --on-bg:#FFFFFF;
+    --on-bg-soft:#FFF0F3;
+    --on-bg-deep:#8A3F58;
+
+    --card:var(--cream);
+    --card-ring:0 0 0 3px rgba(255,255,255,.55);
+    --card-shadow:0 16px 36px -16px rgba(150,70,95,.5);
+    --dash:rgba(217,107,138,.35);
+    --paper:#FFFCF8;
+
+    --title-shadow:0 3px 0 rgba(184,79,111,.3), 0 8px 20px rgba(150,60,90,.3);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{
+    font-family:'Jost',system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    color:var(--ink);
+    background:var(--bg);
+    background-attachment:fixed;
+    min-height:100vh;min-height:100dvh;
+    overflow-x:hidden;
+    padding-bottom:max(28px, env(safe-area-inset-bottom));
+  }
+  img{max-width:100%;display:block}
+
+  /* ---------- drifting layers ---------- */
+  .confetti,.floaters{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+  .bit{position:absolute;top:-30px;animation:fall linear infinite;opacity:.6}
+  @keyframes fall{0%{transform:translateY(-30px) rotate(0)}100%{transform:translateY(115vh) rotate(360deg)}}
+  .float-bit{position:absolute;bottom:-80px;left:var(--fx);animation:floatUp linear infinite;opacity:0}
+  @keyframes floatUp{
+    0%{transform:translateY(0) translateX(0) rotate(-6deg);opacity:0}
+    8%{opacity:.85}
+    50%{transform:translateY(-58vh) translateX(var(--drift)) rotate(4deg)}
+    92%{opacity:.85}
+    100%{transform:translateY(-120vh) translateX(0) rotate(-6deg);opacity:0}
+  }
+  @media (prefers-reduced-motion:reduce){.bit,.float-bit{display:none}}
+
+  .wrap{position:relative;z-index:1;max-width:540px;margin:0 auto;padding:max(20px, env(safe-area-inset-top)) 18px 6px}
+
+  /* ---------- hero ---------- */
+  .hero{text-align:center;padding:4px 0 2px}
+  .eyebrow{
+    display:inline-block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+    color:var(--on-bg-deep);background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.85);
+    padding:5px 13px;border-radius:999px;
+  }
+  h1{
+    font-family:'Baloo 2',cursive;font-weight:800;
+    font-size:clamp(36px,11vw,54px);line-height:1.06;color:var(--on-bg);
+    text-shadow:var(--title-shadow);
+    margin-top:7px;
+  }
+  .sub{
+    font-family:'Baloo 2',cursive;font-weight:600;color:var(--on-bg-soft);
+    font-size:clamp(15px,4.2vw,17px);margin-top:3px;
+    text-shadow:0 2px 10px rgba(150,60,90,.3);
+  }
+  .spark{display:inline-block;animation:twirl 5s ease-in-out infinite}
+  @keyframes twirl{0%,100%{transform:rotate(-12deg) scale(1)}50%{transform:rotate(12deg) scale(1.12)}}
+  @media (prefers-reduced-motion:reduce){.spark{animation:none}}
+
+  /* ---------- fairy lights ---------- */
+  .lights{display:flex;justify-content:center;align-items:flex-end;gap:13px;margin-top:10px;padding:0 8px}
+  .lights .bulb{width:9px;height:9px;border-radius:50%;flex:none;animation:twinkle 2.1s ease-in-out infinite}
+  .lights .bulb:nth-child(even){transform:translateY(5px)}
+  @keyframes twinkle{0%,100%{opacity:.32;filter:brightness(.75)}50%{opacity:1;filter:brightness(1.4)}}
+  @media (prefers-reduced-motion:reduce){.lights .bulb{animation:none;opacity:.9}}
+
+  /* ---------- countdown ---------- */
+  .count-card{
+    margin:14px 0;background:var(--card);border-radius:20px;
+    padding:13px 14px 14px;text-align:center;
+    box-shadow:var(--card-shadow), var(--card-ring);
+  }
+  .count-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);font-weight:600}
+  .count-date{font-family:'Baloo 2',cursive;font-weight:700;color:var(--rose-deep);font-size:18px;line-height:1.2}
+  .timer{display:flex;justify-content:center;gap:7px;margin-top:9px}
+  .tblock{background:var(--cream-lt);border:2px solid var(--dash);border-radius:13px;min-width:56px;padding:7px 4px}
+  .tnum{font-family:'Baloo 2',cursive;font-weight:800;font-size:25px;color:var(--rose-deep);line-height:1;font-variant-numeric:tabular-nums}
+  .tlab{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin-top:2px;font-weight:600}
+  .arrived{display:none;font-family:'Baloo 2',cursive;font-weight:700;color:var(--rose-deep);font-size:19px;margin-top:8px;line-height:1.3}
+  .abounce{display:inline-block;animation:pop 1.6s ease-in-out infinite}
+  .count-note{
+    font-size:12px;line-height:1.45;color:var(--ink-soft);margin-top:10px;
+    padding-top:9px;border-top:2px dashed var(--dash);
+  }
+  .count-card.bday{animation:glow 2.6s ease-in-out infinite}
+  @keyframes glow{
+    0%,100%{box-shadow:var(--card-shadow), var(--card-ring)}
+    50%{box-shadow:0 16px 40px -12px rgba(217,107,138,.7), 0 0 0 5px rgba(232,200,126,.85)}
+  }
+  @media (prefers-reduced-motion:reduce){.count-card.bday,.abounce{animation:none}}
+
+  /* ---------- sections ---------- */
+  section{margin:22px 0}
+  .stitle{
+    text-align:center;font-family:'Baloo 2',cursive;font-weight:700;
+    color:var(--on-bg);font-size:clamp(20px,5.6vw,25px);line-height:1.2;
+    text-shadow:var(--title-shadow);
+  }
+  .ssub{
+    text-align:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--on-bg-soft);font-weight:500;margin-top:2px;margin-bottom:12px;
+  }
+
+  /* ---------- what's ahead ---------- */
+  .ahead{
+    background:linear-gradient(135deg, var(--rose), #C25C80);
+    border-radius:18px;padding:14px;color:#fff;
+    box-shadow:0 14px 32px -16px rgba(150,60,90,.6), 0 0 0 3px rgba(255,255,255,.45);
+  }
+  .arow{display:flex;justify-content:space-between;gap:8px;text-align:center}
+  .aitem{flex:1}
+  .aicon{font-size:19px}
+  .alab{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#FFE2EC;margin-top:3px;font-weight:600}
+  .aval{font-family:'Baloo 2',cursive;font-weight:700;font-size:15px;line-height:1.2}
+  .aline{
+    margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.3);
+    font-size:12.5px;line-height:1.5;color:#FFF0F4;text-align:center;
+  }
+
+  /* ---------- poem ---------- */
+  .poem{
+    position:relative;background:var(--paper);border-radius:20px;padding:26px 20px 20px;
+    box-shadow:var(--card-shadow), var(--card-ring);
+  }
+  .poem .quote{
+    position:absolute;top:2px;left:15px;font-family:'Baloo 2',cursive;font-weight:800;
+    font-size:52px;line-height:1;color:rgba(217,107,138,.22);pointer-events:none;
+  }
+  .poem p{
+    position:relative;font-family:'Caveat',cursive;font-weight:600;
+    color:var(--ink);font-size:19.5px;line-height:1.72;white-space:pre-line;
+  }
+  .poem .sign{
+    margin-top:12px;padding-top:11px;border-top:2px dashed var(--dash);
+    text-align:right;font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--rose);font-weight:600;
+  }
+
+  /* ---------- swipe rails ---------- */
+  .rail{
+    display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    padding:3px 18px 4px;margin:0 -18px;
+  }
+  .rail::-webkit-scrollbar{display:none}
+  .rail > *{scroll-snap-align:center;flex:0 0 88%}
+  .swipe{
+    text-align:center;margin-top:8px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--on-bg-soft);font-weight:500;
+  }
+  .swipe b{font-family:'Baloo 2',cursive;font-weight:700;letter-spacing:0;font-size:13px;color:var(--on-bg)}
+
+  /* ---------- wish cards ---------- */
+  .wish{
+    position:relative;background:var(--card);border-radius:20px;padding:18px 17px 15px;
+    box-shadow:var(--card-shadow), var(--card-ring);
+    display:flex;flex-direction:column;height:230px;cursor:pointer;
+    transition:transform .18s ease;
+  }
+  .wish:active{transform:scale(.985)}
+  .wish .quote{
+    position:absolute;top:-4px;left:13px;font-family:'Baloo 2',cursive;font-weight:800;
+    font-size:50px;line-height:1;color:rgba(217,107,138,.22);pointer-events:none;
+  }
+  .wtext{position:relative;flex:1;overflow:hidden}
+  .wish p{font-size:15px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:5;line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+  .wish p.md{font-size:13.5px;line-height:1.5;-webkit-line-clamp:6;line-clamp:6}
+  .wish p.sm{font-size:12.5px;line-height:1.5;-webkit-line-clamp:7;line-clamp:7}
+  .wish.clamped .wtext::after{
+    content:'';position:absolute;left:0;right:0;bottom:0;height:34px;pointer-events:none;
+    background:linear-gradient(to bottom, rgba(255,247,242,0), var(--card));
+  }
+  .wish .more{
+    display:none;margin-left:auto;font-size:9px;letter-spacing:.14em;text-transform:uppercase;
+    font-weight:600;color:var(--rose);background:var(--cream-lt);border-radius:999px;padding:4px 9px;
+  }
+  .wish.clamped .more{display:inline-block}
+  .wish .from{
+    display:flex;align-items:center;gap:9px;margin-top:12px;padding-top:11px;
+    border-top:2px dashed var(--dash);
+  }
+  .wish .av{
+    width:32px;height:32px;border-radius:50%;flex:none;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Baloo 2',cursive;font-weight:700;font-size:14px;color:#fff;
+    box-shadow:0 4px 10px -3px rgba(0,0,0,.3);
+  }
+  .wish .who{font-family:'Baloo 2',cursive;font-weight:700;font-size:16px;color:var(--rose-deep);line-height:1.1}
+  .wish .role{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .wish.open{
+    background:rgba(255,247,242,.35);border:2px dashed rgba(255,255,255,.85);box-shadow:none;
+    align-items:center;justify-content:center;text-align:center;
+  }
+  .wish.open .big{font-size:26px}
+  .wish.open .slot{font-family:'Baloo 2',cursive;font-weight:700;color:#fff;font-size:17px;margin-top:5px;text-shadow:0 2px 8px rgba(150,60,90,.35)}
+  .wish.open .hint{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-bg-soft);margin-top:3px}
+
+  /* ---------- photo slides ---------- */
+  .slide{
+    position:relative;background:var(--paper);border-radius:5px;padding:11px 11px 0;
+    box-shadow:0 16px 34px -14px rgba(120,55,80,.6), 0 0 0 1px rgba(150,90,110,.09);
+    transition:transform .2s ease;cursor:zoom-in;
+  }
+  .slide:nth-child(odd){transform:rotate(-1.1deg)}
+  .slide:nth-child(even){transform:rotate(1.1deg)}
+  .slide:active{transform:rotate(0) scale(.99)}
+  .slide::after{
+    content:'';position:absolute;top:-10px;left:50%;
+    transform:translateX(-50%) rotate(-2.5deg);
+    width:78px;height:21px;background:rgba(232,200,126,.6);
+    border-left:1px dashed rgba(255,255,255,.55);border-right:1px dashed rgba(255,255,255,.55);
+    border-radius:2px;box-shadow:0 2px 6px rgba(120,55,80,.14);
+  }
+  .slide .ph{aspect-ratio:4/3;border-radius:2px;overflow:hidden;background:#F0E2E6}
+  .slide .ph img{width:100%;height:100%;object-fit:cover}
+  .slide .cap{padding:9px 4px 14px;min-height:70px}
+  .slide .tag{
+    display:inline-block;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    color:var(--gold);background:#FCF2DE;border-radius:999px;padding:3px 9px;
+  }
+  .slide .cap p{
+    font-family:'Caveat',cursive;font-weight:600;
+    font-size:17.5px;line-height:1.3;color:#6B4152;margin-top:5px;
+  }
+
+  /* ---------- dance floor ---------- */
+  .dance{
+    background:var(--card);border-radius:20px;padding:18px 17px;text-align:center;
+    box-shadow:var(--card-shadow), var(--card-ring);
+  }
+  .dance .steps{display:flex;justify-content:center;gap:10px;font-size:26px;line-height:1}
+  .dance .steps span{display:inline-block;animation:step 1.4s ease-in-out infinite}
+  .dance .steps span:nth-child(2){animation-delay:.18s}
+  .dance .steps span:nth-child(3){animation-delay:.36s}
+  @keyframes step{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-9px) rotate(5deg)}}
+  @media (prefers-reduced-motion:reduce){.dance .steps span{animation:none}}
+  .dance h3{font-family:'Baloo 2',cursive;font-weight:700;color:var(--rose-deep);font-size:19px;margin-top:8px;line-height:1.25}
+  .dance p{font-size:14px;line-height:1.6;color:var(--ink-soft);margin-top:7px}
+  .dance .count-in{
+    margin-top:12px;padding-top:11px;border-top:2px dashed var(--dash);
+    font-family:'Caveat',cursive;font-size:19px;color:var(--rose);
+  }
+
+  /* ---------- traits ---------- */
+  .traits{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .trait{
+    background:var(--card);border-radius:16px;padding:13px 12px;
+    box-shadow:0 12px 28px -14px rgba(150,70,95,.5), 0 0 0 3px rgba(255,255,255,.45);
+  }
+  .trait .ic{font-size:19px;line-height:1}
+  .trait h3{font-family:'Baloo 2',cursive;font-weight:700;color:var(--rose-deep);font-size:14.5px;line-height:1.2;margin-top:5px}
+  .trait p{font-size:12.5px;line-height:1.45;color:var(--ink-soft);margin-top:3px}
+
+  /* ---------- closing ---------- */
+  .closing{
+    background:var(--card);border-radius:20px;padding:19px 17px;text-align:center;
+    box-shadow:var(--card-shadow), var(--card-ring);
+  }
+  .closing .cake{font-size:26px;display:inline-block;animation:pop 2.4s ease-in-out infinite;cursor:pointer}
+  @keyframes pop{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-6px) rotate(-6deg)}60%{transform:translateY(-2px) rotate(6deg)}}
+  @media (prefers-reduced-motion:reduce){.closing .cake{animation:none}}
+  .closing h2{font-family:'Baloo 2',cursive;font-weight:700;color:var(--rose-deep);font-size:20px;margin-top:3px;line-height:1.25}
+  .closing p{font-size:14px;line-height:1.55;color:var(--ink-soft);margin-top:7px;max-width:36ch;margin-left:auto;margin-right:auto}
+  .closing .sign{margin-top:11px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);font-weight:600}
+
+  footer{text-align:center;padding:14px 0 4px}
+  footer p{font-family:'Baloo 2',cursive;font-weight:600;color:var(--on-bg-soft);font-size:13px;text-shadow:0 2px 8px rgba(150,60,90,.3)}
+  footer a{color:var(--on-bg-soft);text-decoration:none;border-bottom:1px dotted rgba(255,255,255,.5)}
+
+  /* ---------- song toggle ---------- */
+  .sound{
+    position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:45;
+    width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;padding:0;
+    background:var(--card);font-size:20px;line-height:1;
+    box-shadow:0 12px 26px -8px rgba(150,70,95,.7), 0 0 0 3px rgba(255,255,255,.55);
+    display:none;align-items:center;justify-content:center;
+    transition:transform .16s ease;
+  }
+  .sound.show{display:flex}
+  .sound:active{transform:scale(.92)}
+  .sound.off{background:var(--cream-lt);opacity:.85}
+
+  /* ---------- gate ---------- */
+  body.locked{overflow:hidden}
+  .gate{
+    position:fixed;inset:0;z-index:50;
+    display:none;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:26px;cursor:pointer;border:0;width:100%;
+    background:var(--bg);
+    transition:opacity .55s ease, visibility .55s ease;
+  }
+  .gate.ready{display:flex}
+  .gate.gone{opacity:0;visibility:hidden;pointer-events:none}
+  .gballoons{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+  .gballoons span{position:absolute;bottom:-70px;animation:rise linear infinite}
+  @keyframes rise{
+    0%{transform:translateY(0) rotate(-7deg);opacity:0}
+    12%{opacity:.9}
+    88%{opacity:.9}
+    100%{transform:translateY(-118vh) rotate(7deg);opacity:0}
+  }
+  .gate .scene{position:relative;z-index:1;display:inline-block}
+  .gate .env{
+    font-size:clamp(64px,21vw,94px);line-height:1;display:block;
+    animation:float 2.8s ease-in-out infinite;
+    filter:drop-shadow(0 12px 22px rgba(150,70,95,.4));
+  }
+  .gate .gift{
+    position:absolute;right:-16px;bottom:-4px;font-size:clamp(30px,9vw,42px);
+    animation:shake 2.2s ease-in-out infinite;transform-origin:50% 100%;
+    filter:drop-shadow(0 6px 12px rgba(150,70,95,.35));
+  }
+  @keyframes float{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-13px) rotate(4deg)}}
+  @keyframes shake{
+    0%,58%,100%{transform:rotate(0)}
+    64%{transform:rotate(-13deg)}72%{transform:rotate(11deg)}
+    80%{transform:rotate(-8deg)}88%{transform:rotate(5deg)}
+  }
+  .gate .g-eyebrow{
+    font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+    color:var(--on-bg-deep);background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.85);
+    padding:5px 13px;border-radius:999px;margin-top:22px;
+  }
+  .gate h2{
+    font-family:'Baloo 2',cursive;font-weight:800;color:var(--on-bg);
+    font-size:clamp(34px,10vw,48px);line-height:1.08;margin-top:9px;
+    text-shadow:var(--title-shadow);
+  }
+  .gate .tap{
+    margin-top:20px;font-family:'Baloo 2',cursive;font-weight:700;font-size:15px;
+    color:var(--rose-deep);background:var(--card);border-radius:999px;padding:11px 26px;
+    box-shadow:0 12px 26px -10px rgba(150,70,95,.6), 0 0 0 3px rgba(255,255,255,.5);
+    animation:pulse 1.9s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.055)}}
+  @media (prefers-reduced-motion:reduce){
+    .gate .env,.gate .tap,.gate .gift,.gballoons span{animation:none}
+    .gballoons{display:none}
+  }
+
+  /* ---------- wish reader ---------- */
+  .wr{
+    position:fixed;inset:0;z-index:70;background:rgba(62,26,40,.94);
+    display:none;align-items:center;justify-content:center;padding:22px 18px;
+  }
+  .wr.on{display:flex}
+  .wrcard{
+    position:relative;background:var(--card);border-radius:22px;padding:26px 20px 18px;
+    width:100%;max-width:440px;max-height:82vh;overflow-y:auto;
+    box-shadow:0 24px 60px -18px rgba(0,0,0,.6), 0 0 0 3px rgba(255,255,255,.4);
+  }
+  .wrcard .quote{
+    position:absolute;top:2px;left:15px;font-family:'Baloo 2',cursive;font-weight:800;
+    font-size:54px;line-height:1;color:rgba(217,107,138,.22);pointer-events:none;
+  }
+  .wrcard p{position:relative;font-size:15.5px;line-height:1.62;color:var(--ink);white-space:pre-line}
+  .wrcard .from{
+    display:flex;align-items:center;gap:10px;margin-top:16px;padding-top:14px;
+    border-top:2px dashed var(--dash);
+  }
+  .wrcard .av{
+    width:36px;height:36px;border-radius:50%;flex:none;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Baloo 2',cursive;font-weight:700;font-size:16px;color:#fff;
+  }
+  .wrcard .who{font-family:'Baloo 2',cursive;font-weight:700;font-size:18px;color:var(--rose-deep);line-height:1.1}
+  .wrcard .role{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .wrx{
+    position:absolute;top:12px;right:14px;border:0;cursor:pointer;color:#fff;
+    background:rgba(255,255,255,.16);width:40px;height:40px;border-radius:50%;font-size:20px;line-height:1;
+  }
+
+  /* ---------- confetti burst ---------- */
+  .sparkbit{
+    position:fixed;z-index:60;pointer-events:none;line-height:1;
+    animation:burst .95s cubic-bezier(.2,.6,.4,1) forwards;
+  }
+  @keyframes burst{
+    0%{transform:translate(0,0) scale(.5) rotate(0);opacity:1}
+    100%{transform:translate(var(--tx),var(--ty)) scale(1.15) rotate(var(--rot));opacity:0}
+  }
+
+  /* ---------- lightbox ---------- */
+  .lb{
+    position:fixed;inset:0;z-index:70;background:rgba(62,26,40,.94);
+    display:none;flex-direction:column;align-items:center;justify-content:center;padding:22px 16px;
+  }
+  .lb.on{display:flex}
+  .lb img{max-width:100%;max-height:72vh;width:auto;object-fit:contain;border-radius:12px;box-shadow:0 20px 50px -12px rgba(0,0,0,.6)}
+  .lb .lbtag{
+    display:inline-block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    color:#4A2434;background:var(--champagne);border-radius:999px;padding:3px 10px;margin-top:14px;
+  }
+  .lb .lbcap{color:var(--on-bg-soft);font-size:14px;line-height:1.5;text-align:center;margin-top:8px;max-width:40ch}
+  .lb .lbnum{color:var(--blush);font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-top:9px}
+  .lb button{border:0;cursor:pointer;color:#fff;font-family:inherit}
+  .lb .x{position:absolute;top:12px;right:14px;background:rgba(255,255,255,.16);width:40px;height:40px;border-radius:50%;font-size:20px;line-height:1}
+  .lb .nav{
+    position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.16);
+    width:44px;height:44px;border-radius:50%;font-size:22px;line-height:1;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .lb .prev{left:8px}
+  .lb .next{right:8px}
+  .lb .hintclose{position:absolute;bottom:14px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blush)}
+</style>
+</head>
+<body>
+  <div class="gate" id="gate" role="button" tabindex="0" aria-label="Tap to open Sathvika's birthday page">
+    <div class="gballoons" id="gballoons" aria-hidden="true"></div>
+    <div class="scene">
+      <span class="env">🎀</span>
+      <span class="gift">💍</span>
+    </div>
+    <div class="g-eyebrow">from the whole gang</div>
+    <h2>Something<br>for Sathvika</h2>
+    <div class="tap">tap to open ✨</div>
+  </div>
+
+  <div class="wr" id="wr" role="dialog" aria-modal="true" aria-label="Birthday wish">
+    <button class="wrx" id="wrClose" aria-label="Close">✕</button>
+    <div class="wrcard">
+      <div class="quote">&ldquo;</div>
+      <p id="wrText"></p>
+      <div class="from">
+        <div class="av" id="wrAv"></div>
+        <div><div class="who" id="wrWho"></div><div class="role" id="wrRole"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="x" id="lbClose" aria-label="Close">✕</button>
+    <button class="nav prev" id="lbPrev" aria-label="Previous photo">‹</button>
+    <button class="nav next" id="lbNext" aria-label="Next photo">›</button>
+    <img id="lbImg" src="" alt="" />
+    <span class="lbtag" id="lbTag"></span>
+    <p class="lbcap" id="lbCap"></p>
+    <div class="lbnum" id="lbNum"></div>
+    <div class="hintclose">tap outside to close</div>
+  </div>
+
+  <button class="sound" id="sound" aria-label="Turn the birthday song off">🔊</button>
+
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+  <div class="floaters" id="floaters" aria-hidden="true"></div>
+
+  <div class="wrap">
+
+    <div class="hero">
+      <p class="eyebrow">from the whole gang</p>
+      <h1>Happy Birthday<br>Sathvika!</h1>
+      <p class="sub"><span class="spark">✨</span> our youngest, and the brightest point of view</p>
+      <div class="lights" id="lights" aria-hidden="true"></div>
+    </div>
+
+    <div class="count-card" id="countCard">
+      <div class="count-label">Counting down to</div>
+      <div class="count-date">19th September 🎂</div>
+      <div class="timer" id="timer">
+        <div class="tblock"><div class="tnum" id="d">00</div><div class="tlab">days</div></div>
+        <div class="tblock"><div class="tnum" id="h">00</div><div class="tlab">hrs</div></div>
+        <div class="tblock"><div class="tnum" id="m">00</div><div class="tlab">min</div></div>
+        <div class="tblock"><div class="tnum" id="s">00</div><div class="tlab">sec</div></div>
+      </div>
+      <div class="arrived" id="arrived"><span class="abounce">🎉</span> It's here, happy birthday Sathvika! <span class="abounce" style="animation-delay:.2s">🎂</span></div>
+      <div class="count-note" id="countNote">A birthday first, and then everything else this season is bringing 💛</div>
+    </div>
+
+    <section>
+      <div class="ahead">
+        <div class="arow">
+          <div class="aitem"><div class="aicon">🎂</div><div class="alab">This week</div><div class="aval">19 Sept</div></div>
+          <div class="aitem"><div class="aicon">💍</div><div class="alab">Next week</div><div class="aval">The promises</div></div>
+          <div class="aitem"><div class="aicon">💐</div><div class="alab">And then</div><div class="aval">February</div></div>
+        </div>
+        <div class="aline">Three chapters in one season. We are very glad we get to watch all of them happen.</div>
+      </div>
+    </section>
+
+    <section>
+      <p class="stitle">A few lines for you 🖋️</p>
+      <p class="ssub">from the gang</p>
+      <div class="poem">
+        <div class="quote">&ldquo;</div>
+        <p>Today we light the candles just for you,
+The youngest heart, the brightest point of view.
+Before the rings, the vows, and wedding gear,
+We pause right here to celebrate your year.
+
+You've given so much life to every space,
+Carrying our days with easy warmth and grace.
+Tatsat and Akash still owe their steps to your beat,
+The master choreographer turning two left feet
+Into pure rhythm, effortlessly bright,
+Guiding our chaos with patience and light.
+
+Your talent is effortless, your energy pure,
+A spark in our circle that's steady and sure.
+Next week the promises begin to bloom,
+And February waits with love and room.
+
+Happy Birthday to the soul inside our fold.
+Step forward strong, hold on to all you hold.
+Take every blessing, keep that easy smile,
+We're celebrating you across each mile.</p>
+        <div class="sign">from all of us 💛</div>
+      </div>
+    </section>
+
+    <section>
+      <p class="stitle">The Wishes Wall 💌</p>
+      <p class="ssub">everyone had something to say</p>
+      <div class="rail" id="wishes"></div>
+      <p class="swipe" id="wishCount"></p>
+    </section>
+
+    <section>
+      <div class="dance">
+        <div class="steps"><span>💃</span><span>🎶</span><span>🕺</span></div>
+        <h3>The master choreographer</h3>
+        <p>Tatsat and Akash still owe their steps to her counts. She takes two left feet and a room full of confusion, and somehow turns it into something that actually looks like a routine. Patient through every wrong turn, and she has never once made anyone feel silly for getting it wrong.</p>
+        <div class="count-in">five, six, seven, eight...</div>
+      </div>
+    </section>
+
+    <section>
+      <p class="stitle">Receipts from the gang 📷</p>
+      <p class="ssub">a few favourite moments</p>
+      <div class="rail" id="album"></div>
+      <p class="swipe" id="photoCount"></p>
+    </section>
+
+    <section>
+      <p class="stitle">Why she's the group's favourite ✨</p>
+      <p class="ssub">unanimous, no voting needed</p>
+      <div class="traits" id="traits"></div>
+    </section>
+
+    <section>
+      <div class="closing">
+        <div class="cake">🎂</div>
+        <h2>Have the best one, Sathvika!</h2>
+        <p>Here is to a year of good news, of plans that somehow always come together, and of you staying exactly as you are through all of it. Whatever changes this year, this bunch is not going anywhere.</p>
+        <div class="sign">from all of us 🎉</div>
+      </div>
+    </section>
+
+    <footer>
+      <p>made by the gang, for our youngest ✨</p>
+    </footer>
+  </div>
+
+<script>
+  /* ============================================================
+     DATA. Everything person specific lives here. To build the
+     next celebration page, copy this file, swap the palette
+     tokens at the top of the stylesheet, and rewrite this block.
+     ============================================================ */
+  const DATA = {
+    name:'Sathvika',
+    // 19 September, month index 8
+    birthday:{ month:8, day:19 },
+
+    wishes:[
+      {
+        name:'Priyanka',
+        role:'the gang',
+        text:'Happy Birthday to you wonderful girl! 🎂✨ May your day be filled with happiness, laughter, and beautiful memories. 💐 Wishing you great success and endless opportunities in life. 🌟 Keep smiling, keep learning, and keep shining whatever you do! 😊 Have an amazing birthday and a fantastic year ahead! 🎉🎈'
+      },
+      {
+        name:'Abi',
+        role:'our boss',
+        text:'Happy Birthday, Sathvika! 🎂🥳\n\nFrom our BBGW days to where we are today, it’s been wonderful sharing this friendship with you. I’m really happy that no matter how life changes, we’ve continued to stay connected and great friends with each other.\n\nYou’re entering such an exciting new chapter with your wedding journey ahead, and I’m truly thrilled for you. Even if work takes us to different work locations, I know our friendship isn’t going anywhere.\n\nHave a fabulous birthday, enjoy every moment, and congratulations on your engagement! Wishing you loads of happiness, love, and success in this beautiful phase of life. ✨'
+      },
+      {
+        name:'Aruna',
+        role:'the gang',
+        text:'Happy Birthday Sathvika! You bring the good vibes, the wild ideas, and the best distractions to the workplace. Never change! May your day be entirely unscripted and gloriously chaotic.'
+      },
+      {
+        name:'Tatsat',
+        role:'the gang',
+        text:'Happy Birthday, Sathvika! 🎂✨ From our early project days to watching you become that insanely talented, who is gloriously crazy about everything she takes up, it has been an absolute privilege having you in my corner. Thank you for always being my go-to listener through every high, low, and messy thought without ever passing judgment. You’re stepping into such an exciting new chapter with your engagement and wedding journey ahead, and while life and work might shift things around, you are officially stuck with this friendship for life. Keep that incredible spark, and have the happiest, most magical birthday!'
+      }
+    ],
+
+    // friends still writing. Set above zero to show a saved spot on the wall.
+    openSlots:0,
+
+    moments:[
+      { file:'group-garden.jpg',  pos:'50% 40%', tag:'the whole crew',  cap:'Everyone in one frame, somewhere green, and nobody in a hurry to head back.' },
+      { file:'thumbs-up.jpg',     pos:'50% 45%', tag:'saree day',       cap:'All dressed up, and a unanimous thumbs up for how the day turned out.' },
+      { file:'saree-candid.jpg',  pos:'50% 35%', tag:'mid laugh',       cap:'Nobody posed for this one. That is exactly why it is the best of the set.' },
+      { file:'mirror-selfie.jpg', pos:'50% 40%', tag:'corridor selfie', cap:'The classic mirror shot, complete with the Frozen backpack.' }
+    ],
+
+    traits:[
+      { ic:'🌊', title:'The unbothered one', text:'Plans change, she shrugs, and somehow the new plan turns out better.' },
+      { ic:'⚡', title:'Sudden plans',        text:'Decides at six that the evening is happening. It happens.' },
+      { ic:'🎧', title:'Counts us in',        text:'Turns our chaos into something that genuinely looks like choreography.' },
+      { ic:'💛', title:'Softer than she lets on', text:'Listens properly, remembers what you said, and checks back on it later.' }
+    ],
+
+    avatarColors:['#D96B8A','#C9A24E','#8A6072','#5FA8A0','#B84F6F','#7B5EA7','#E08A5B','#4A90D9'],
+    bulbColors:['#D96B8A','#E8C87E','#F7C9CE','#C9A24E','#EFA5B8','#E8C87E'],
+    confettiShapes:['✨','🎉','🎂','💐','🎊','💍'],
+    floatShapes:['🎈','🎈','🎈','🎂','💐','🎉','💗','🎈','✨'],
+    burstBits:['🎉','✨','🎊','💐','🎂','💗','🎀']
+  };
+
+  function esc(s){
+    return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  }
+
+  /* ---------- drifting confetti ---------- */
+  const cc=document.getElementById('confetti');
+  for(let i=0;i<16;i++){
+    const b=document.createElement('div');
+    b.className='bit';
+    b.textContent=DATA.confettiShapes[Math.floor(Math.random()*DATA.confettiShapes.length)];
+    b.style.left=Math.random()*100+'vw';
+    b.style.fontSize=(11+Math.random()*11)+'px';
+    b.style.animationDuration=(11+Math.random()*12)+'s';
+    b.style.animationDelay=(-Math.random()*18)+'s';
+    cc.appendChild(b);
+  }
+
+  /* ---------- balloons and petals drifting up ---------- */
+  const ff=document.getElementById('floaters');
+  for(let i=0;i<14;i++){
+    const b=document.createElement('div');
+    b.className='float-bit';
+    b.textContent=DATA.floatShapes[Math.floor(Math.random()*DATA.floatShapes.length)];
+    b.style.setProperty('--fx',Math.random()*100+'vw');
+    b.style.setProperty('--drift',(Math.random()*70-35)+'px');
+    b.style.fontSize=(20+Math.random()*22)+'px';
+    b.style.animationDuration=(14+Math.random()*10)+'s';
+    b.style.animationDelay=(-Math.random()*24)+'s';
+    ff.appendChild(b);
+  }
+
+  /* ---------- fairy lights ---------- */
+  const lightsEl=document.getElementById('lights');
+  for(let i=0;i<13;i++){
+    const dot=document.createElement('span');
+    dot.className='bulb';
+    const c=DATA.bulbColors[i%DATA.bulbColors.length];
+    dot.style.background=c;
+    dot.style.boxShadow='0 0 7px 2px '+c+'99';
+    dot.style.animationDelay=(-Math.random()*2.1).toFixed(2)+'s';
+    lightsEl.appendChild(dot);
+  }
+
+  /* ---------- confetti burst.
+     Defined before the countdown on purpose: when the birthday has
+     already arrived, the countdown fires its celebration branch
+     synchronously on load and calls straight into this. ---------- */
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function burst(x,y,n){
+    if(reduceMotion) return;
+    for(let i=0;i<n;i++){
+      const s=document.createElement('div');
+      s.className='sparkbit';
+      s.textContent=DATA.burstBits[Math.floor(Math.random()*DATA.burstBits.length)];
+      s.style.left=x+'px';
+      s.style.top=y+'px';
+      s.style.fontSize=(13+Math.random()*15)+'px';
+      const ang=Math.random()*Math.PI*2, dist=90+Math.random()*230;
+      s.style.setProperty('--tx',(Math.cos(ang)*dist).toFixed(0)+'px');
+      s.style.setProperty('--ty',(Math.sin(ang)*dist+130).toFixed(0)+'px');
+      s.style.setProperty('--rot',(Math.random()*720-360).toFixed(0)+'deg');
+      s.style.animationDelay=(Math.random()*.12).toFixed(2)+'s';
+      document.body.appendChild(s);
+      setTimeout(()=>s.remove(),1300);
+    }
+  }
+
+  /* ---------- countdown to 19 September, IST ---------- */
+  function nextBirthday(){
+    const now=Date.now();
+    const mk=yr=>Date.UTC(yr,DATA.birthday.month,DATA.birthday.day,0,0,0)-5.5*3600*1000;
+    let start=mk(new Date().getFullYear());
+    // the birthday counts as here for the whole day, so only roll over
+    // to next year once the day itself is fully past
+    if(now>=start+86400000) start=mk(new Date().getFullYear()+1);
+    return new Date(start);
+  }
+  const target=nextBirthday();
+  const dEl=document.getElementById('d'),hEl=document.getElementById('h'),
+        mEl=document.getElementById('m'),sEl=document.getElementById('s'),
+        timerEl=document.getElementById('timer'),arrivedEl=document.getElementById('arrived'),
+        noteEl=document.getElementById('countNote'),countCardEl=document.getElementById('countCard');
+  function pad(n){return String(n).padStart(2,'0')}
+
+  let celebrated=false;
+  function celebrateArrival(){
+    if(celebrated) return;
+    celebrated=true;
+    countCardEl.classList.add('bday');
+    const r=countCardEl.getBoundingClientRect();
+    burst(r.left+r.width/2, r.top+r.height/2, 40);
+    setInterval(()=>{
+      burst(Math.random()*window.innerWidth, window.innerHeight*(.15+Math.random()*.5), 14);
+    },9000);
+  }
+
+  function tick(){
+    const diff=target.getTime()-Date.now();
+    if(diff<=0){
+      timerEl.style.display='none';
+      arrivedEl.style.display='block';
+      noteEl.style.display='none';
+      clearInterval(iv);
+      celebrateArrival();
+      return;
+    }
+    dEl.textContent=pad(Math.floor(diff/86400000));
+    hEl.textContent=pad(Math.floor((diff%86400000)/3600000));
+    mEl.textContent=pad(Math.floor((diff%3600000)/60000));
+    sEl.textContent=pad(Math.floor((diff%60000)/1000));
+  }
+  // iv must exist before tick runs: on the birthday itself the first
+  // call takes the branch above and clears this interval immediately
+  let iv=setInterval(tick,1000);
+  tick();
+
+  /* ---------- the wishes wall ---------- */
+  const wishesEl=document.getElementById('wishes');
+  DATA.wishes.forEach((w,i)=>{
+    const el=document.createElement('div');
+    el.className='wish';
+    w.color=DATA.avatarColors[i%DATA.avatarColors.length];
+    el.innerHTML=
+      '<div class="quote">&ldquo;</div>'+
+      '<div class="wtext"><p class="'+(w.text.length>420?'sm':w.text.length>260?'md':'')+'">'+esc(w.text)+'</p></div>'+
+      '<div class="from">'+
+        '<div class="av" style="background:'+w.color+'">'+esc(w.name.charAt(0).toUpperCase())+'</div>'+
+        '<div><div class="who">'+esc(w.name)+'</div><div class="role">'+esc(w.role)+'</div></div>'+
+        '<span class="more">tap to read</span>'+
+      '</div>';
+    el.addEventListener('click',()=>{ if(!wDragged) openWish(i); });
+    wishesEl.appendChild(el);
+    // only flag the ones actually cut off, so short wishes stay clean
+    requestAnimationFrame(()=>{
+      const p=el.querySelector('p');
+      if(p.scrollHeight>p.clientHeight+1) el.classList.add('clamped');
+    });
+  });
+
+  if(DATA.openSlots>0){
+    const el=document.createElement('div');
+    el.className='wish open';
+    el.innerHTML=
+      '<div class="big">✨</div>'+
+      '<div class="slot">'+DATA.openSlots+' more wishes<br>on the way</div>'+
+      '<div class="hint">saving a spot for you</div>';
+    wishesEl.appendChild(el);
+  }
+
+  document.getElementById('wishCount').innerHTML= DATA.openSlots>0
+    ? '<b>'+DATA.wishes.length+' of '+(DATA.wishes.length+DATA.openSlots)+'</b> wishes in &nbsp;•&nbsp; swipe, tap to read'
+    : '<b>'+DATA.wishes.length+'</b> wishes from the gang &nbsp;•&nbsp; swipe, tap to read';
+
+  /* a swipe of the wishes rail must not count as a tap on a card */
+  let wDragged=false,wPressed=false,wx=0,wy=0;
+  wishesEl.addEventListener('pointerdown',e=>{wPressed=true;wDragged=false;wx=e.clientX;wy=e.clientY});
+  wishesEl.addEventListener('pointermove',e=>{
+    if(wPressed && (Math.abs(e.clientX-wx)>8 || Math.abs(e.clientY-wy)>8)) wDragged=true;
+  });
+  ['pointerup','pointercancel','pointerleave'].forEach(ev=>
+    wishesEl.addEventListener(ev,()=>{wPressed=false})
+  );
+
+  /* ---------- wish reader ---------- */
+  const wr=document.getElementById('wr'),
+        wrText=document.getElementById('wrText'),
+        wrWho=document.getElementById('wrWho'),
+        wrRole=document.getElementById('wrRole'),
+        wrAv=document.getElementById('wrAv');
+
+  function openWish(i){
+    const w=DATA.wishes[i];
+    wrText.textContent=w.text;
+    wrWho.textContent=w.name;
+    wrRole.textContent=w.role;
+    wrAv.textContent=w.name.charAt(0).toUpperCase();
+    wrAv.style.background=w.color;
+    wr.classList.add('on');
+    document.body.classList.add('locked');
+  }
+  function closeWish(){
+    wr.classList.remove('on');
+    document.body.classList.remove('locked');
+  }
+  document.getElementById('wrClose').addEventListener('click',closeWish);
+  wr.addEventListener('click',e=>{ if(e.target===wr) closeWish(); });
+
+  /* ---------- traits ---------- */
+  const traitsEl=document.getElementById('traits');
+  DATA.traits.forEach(t=>{
+    const el=document.createElement('div');
+    el.className='trait';
+    el.innerHTML='<div class="ic">'+t.ic+'</div><h3>'+esc(t.title)+'</h3><p>'+esc(t.text)+'</p>';
+    traitsEl.appendChild(el);
+  });
+
+  /* ---------- the album ---------- */
+  const album=document.getElementById('album');
+  DATA.moments.forEach((m,i)=>{
+    const el=document.createElement('div');
+    el.className='slide';
+    el.innerHTML=
+      '<div class="ph"><img src="photos/'+encodeURIComponent(m.file)+'" alt="" loading="lazy" '+
+        'style="object-position:'+esc(m.pos||'50% 50%')+'"/></div>'+
+      '<div class="cap"><span class="tag">'+esc(m.tag)+'</span><p>'+esc(m.cap)+'</p></div>';
+    el.addEventListener('click',()=>{ if(!dragged) openLb(i); });
+    album.appendChild(el);
+  });
+
+  document.getElementById('photoCount').innerHTML=
+    '<b>'+DATA.moments.length+'</b> moments &nbsp;•&nbsp; tap one to see it full';
+
+  let dragged=false,pressed=false,px=0,py=0;
+  album.addEventListener('pointerdown',e=>{pressed=true;dragged=false;px=e.clientX;py=e.clientY});
+  album.addEventListener('pointermove',e=>{
+    if(pressed && (Math.abs(e.clientX-px)>8 || Math.abs(e.clientY-py)>8)) dragged=true;
+  });
+  ['pointerup','pointercancel','pointerleave'].forEach(ev=>
+    album.addEventListener(ev,()=>{pressed=false})
+  );
+
+  /* ---------- photo lightbox ---------- */
+  const lb=document.getElementById('lb'),
+        lbImg=document.getElementById('lbImg'),
+        lbTag=document.getElementById('lbTag'),
+        lbCap=document.getElementById('lbCap'),
+        lbNum=document.getElementById('lbNum');
+  let lbIdx=0;
+
+  function renderLb(){
+    const m=DATA.moments[lbIdx];
+    lbImg.src='photos/'+encodeURIComponent(m.file);
+    lbTag.textContent=m.tag;
+    lbCap.textContent=m.cap;
+    lbNum.textContent=(lbIdx+1)+' / '+DATA.moments.length;
+  }
+  function openLb(i){
+    lbIdx=i; renderLb();
+    lb.classList.add('on');
+    document.body.classList.add('locked');
+  }
+  function closeLb(){
+    lb.classList.remove('on');
+    document.body.classList.remove('locked');
+  }
+  function navLb(step){
+    lbIdx=(lbIdx+step+DATA.moments.length)%DATA.moments.length;
+    renderLb();
+  }
+  document.getElementById('lbClose').addEventListener('click',closeLb);
+  document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();navLb(-1)});
+  document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();navLb(1)});
+  lb.addEventListener('click',e=>{ if(e.target===lb) closeLb(); });
+  document.addEventListener('keydown',e=>{
+    if(wr.classList.contains('on')){
+      if(e.key==='Escape') closeWish();
+      return;
+    }
+    if(!lb.classList.contains('on')) return;
+    if(e.key==='Escape') closeLb();
+    else if(e.key==='ArrowRight') navLb(1);
+    else if(e.key==='ArrowLeft') navLb(-1);
+  });
+
+  /* ============================================================
+     THE BIRTHDAY SONG
+     Synthesised as a music box, so there is no audio file to load.
+     The melody is public domain. Starts on the gate tap, because
+     browsers block audio without a gesture, and loops until stopped.
+     ============================================================ */
+  const AC=window.AudioContext||window.webkitAudioContext;
+  const N={C5:523.25,D5:587.33,E5:659.25,F5:698.46,G5:783.99,A5:880,Bb5:932.33,C6:1046.5};
+  const MELODY=[
+    [N.C5,.75],[N.C5,.25],[N.D5,1],[N.C5,1],[N.F5,1],[N.E5,2],
+    [N.C5,.75],[N.C5,.25],[N.D5,1],[N.C5,1],[N.G5,1],[N.F5,2],
+    [N.C5,.75],[N.C5,.25],[N.C6,1],[N.A5,1],[N.F5,1],[N.E5,1],[N.D5,1],
+    [N.Bb5,.75],[N.Bb5,.25],[N.A5,1],[N.F5,1],[N.G5,1],[N.F5,2]
+  ];
+  const BEAT=0.5, REST=1.1;
+
+  const soundBtn=document.getElementById('sound');
+  let actx=null, master=null, playing=false, loopTimer=null, nextStart=0;
+
+  function noteAt(freq,start,dur){
+    [[freq,1],[freq*2,.28]].forEach(([f,amp])=>{
+      const o=actx.createOscillator(), g=actx.createGain();
+      o.type='triangle';
+      o.frequency.value=f;
+      const ring=Math.max(dur,.38)*1.5;
+      g.gain.setValueAtTime(.0001,start);
+      g.gain.exponentialRampToValueAtTime(amp,start+.012);
+      g.gain.exponentialRampToValueAtTime(.0001,start+ring);
+      o.connect(g); g.connect(master);
+      o.start(start);
+      o.stop(start+ring+.05);
+    });
+  }
+  function scheduleSong(from){
+    let t=from;
+    MELODY.forEach(([f,b])=>{ noteAt(f,t,b*BEAT); t+=b*BEAT; });
+    return t+REST;
+  }
+  function loopTick(){
+    if(!playing || !actx) return;
+    nextStart=scheduleSong(Math.max(actx.currentTime+.08, nextStart));
+    loopTimer=setTimeout(loopTick, Math.max(200,(nextStart-actx.currentTime)*1000-200));
+  }
+  function playSong(){
+    if(!AC) return;
+    if(!actx){
+      actx=new AC();
+      master=actx.createGain();
+      master.gain.value=.18;
+      master.connect(actx.destination);
+    }
+    if(actx.state==='suspended') actx.resume();
+    playing=true; nextStart=0;
+    soundBtn.textContent='🔊';
+    soundBtn.classList.remove('off');
+    soundBtn.setAttribute('aria-label','Turn the birthday song off');
+    loopTick();
+  }
+  function stopSong(){
+    playing=false;
+    clearTimeout(loopTimer);
+    if(actx){
+      try{
+        master.gain.cancelScheduledValues(actx.currentTime);
+        master.gain.setTargetAtTime(0,actx.currentTime,.02);
+      }catch(e){}
+      const dying=actx;
+      actx=null; master=null;
+      setTimeout(()=>{ try{dying.close()}catch(e){} },300);
+    }
+    soundBtn.textContent='🔇';
+    soundBtn.classList.add('off');
+    soundBtn.setAttribute('aria-label','Play the birthday song');
+  }
+  soundBtn.addEventListener('click',()=>{ playing?stopSong():playSong(); });
+
+  /* ---------- tap to open gate ---------- */
+  const gate=document.getElementById('gate');
+  document.body.classList.add('locked');
+  gate.classList.add('ready');
+
+  const gb=document.getElementById('gballoons');
+  ['🎈','💗','🎈','🎀','🎈','💗','🎈','✨'].forEach(b=>{
+    const s=document.createElement('span');
+    s.textContent=b;
+    s.style.left=(4+Math.random()*90)+'vw';
+    s.style.fontSize=(20+Math.random()*20)+'px';
+    s.style.animationDuration=(9+Math.random()*7)+'s';
+    s.style.animationDelay=(-Math.random()*12)+'s';
+    gb.appendChild(s);
+  });
+  function openGate(){
+    if(gate.classList.contains('gone')) return;
+    burst(window.innerWidth/2, window.innerHeight*0.42, 36);
+    playSong();
+    soundBtn.classList.add('show');
+    gate.classList.add('gone');
+    document.body.classList.remove('locked');
+    setTimeout(()=>{gate.style.display='none'},700);
+  }
+  gate.addEventListener('click',openGate);
+  gate.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openGate(); }
+  });
+
+  /* tap the cake for one more burst */
+  const cake=document.querySelector('.closing .cake');
+  cake.setAttribute('title','tap me');
+  cake.addEventListener('click',()=>{
+    const r=cake.getBoundingClientRect();
+    burst(r.left+r.width/2, r.top+r.height/2, 26);
+  });
+</script>
+</body>
+</html>
