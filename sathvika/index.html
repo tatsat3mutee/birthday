@@ -306,6 +306,21 @@
   @media (prefers-reduced-motion:reduce){.dance .steps span{animation:none}}
   .dance h3{font-family:'Baloo 2',cursive;font-weight:700;color:var(--rose-deep);font-size:19px;margin-top:8px;line-height:1.25}
   .dance p{font-size:14px;line-height:1.6;color:var(--ink-soft);margin-top:7px}
+  .dancephoto{
+    margin:13px auto 0;max-width:280px;border-radius:14px;overflow:hidden;
+    aspect-ratio:1/1;background:#F0E2E6;
+    box-shadow:0 14px 30px -12px rgba(120,55,80,.55);
+    border:2px solid rgba(201,162,78,.45);
+  }
+  .dancephoto img{width:100%;height:100%;object-fit:cover}
+  .dance .dcap{
+    font-family:'Caveat',cursive;font-size:17px;color:var(--rose);margin-top:7px;
+  }
+  .dance .dpunch{
+    font-family:'Baloo 2',cursive;font-weight:700;font-size:15px;
+    color:var(--rose-deep);margin-top:10px;line-height:1.35;
+  }
+  .dance .dnote{font-size:11.5px;color:var(--ink-soft);opacity:.75;margin-top:5px;font-style:italic}
   .dance .count-in{
     margin-top:12px;padding-top:11px;border-top:2px dashed var(--dash);
     font-family:'Caveat',cursive;font-size:19px;color:var(--rose);
@@ -603,7 +618,7 @@
     <section>
       <div class="ahead">
         <div class="arow">
-          <div class="aitem"><div class="aicon">🎂</div><div class="alab">This week</div><div class="aval">19 Sept</div></div>
+          <div class="aitem"><div class="aicon">🎂</div><div class="alab">19 September</div><div class="aval">Turning 24</div></div>
           <div class="aitem"><div class="aicon">💍</div><div class="alab">Next week</div><div class="aval">The promises</div></div>
           <div class="aitem"><div class="aicon">💐</div><div class="alab">And then</div><div class="aval">February</div></div>
         </div>
@@ -657,8 +672,14 @@ We're celebrating you across each mile.</p>
     <section>
       <div class="dance">
         <div class="steps"><span>💃</span><span>🎶</span><span>🕺</span></div>
-        <h3>The master choreographer</h3>
-        <p>Tatsat and Akash still owe their steps to her counts. She takes two left feet and a room full of confusion, and somehow turns it into something that actually looks like a routine. Patient through every wrong turn, and she has never once made anyone feel silly for getting it wrong.</p>
+        <h3>The reason they got on that stage</h3>
+        <div class="dancephoto">
+          <img src="photos/the-formation.jpg" alt="" loading="lazy" style="object-position:50% 30%" />
+        </div>
+        <p class="dcap">the formation, fully committed</p>
+        <p>Tatsat and Akash had two left feet between them and no real intention of ever performing in front of anyone. She counted them in anyway. Patient through every wrong turn, and never once making either of them feel silly for getting it wrong.</p>
+        <p class="dpunch">Ask either of them where the confidence came from and you get the same answer.</p>
+        <p class="dnote">Ruchitha gets some of the credit too. Some.</p>
         <div class="count-in">five, six, seven, eight...</div>
       </div>
     </section>
@@ -735,6 +756,11 @@ We're celebrating you across each mile.</p>
         name:'Asha',
         role:'the gang',
         text:'Happy birthday to our on the spot trip planner, a big fan of ur adhoc plannings & execution🤗🧿🧿🧿\n\nWalk through life with your same positive attitude and that beautiful smile.\nMay God fill your days with endless happiness, health and love.'
+      },
+      {
+        name:'Akash',
+        role:'the gang',
+        text:'Happy 24th Birthday! 🥳❤️\n\nI’m really grateful to have you as a friend. You’re the one who gave me the confidence to get on stage and dance, and I’ll always remember that! 😄❤️\n\nAnd with your engagement next week, I’m genuinely so happy for you! 💍🥹 Wishing you both a beautiful journey filled with lots of love, laughter and happiness. You truly deserve all of it! ❤️\n\nHave an amazing birthday and an even more amazing year ahead! 🥳✨'
       },
       {
         name:'Tatsat',
