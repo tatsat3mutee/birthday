@@ -347,6 +347,25 @@
     font-family:'Caveat',cursive;font-size:19px;color:var(--rose);
   }
 
+  /* ---------- where the tradition started ---------- */
+  .origin{
+    background:var(--card);border-radius:20px;padding:15px 15px 17px;text-align:center;
+    box-shadow:var(--card-shadow), var(--card-ring);
+  }
+  .origin .ophoto{
+    border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:#F0E2E6;
+    box-shadow:0 12px 26px -12px rgba(120,55,80,.5);
+  }
+  .origin .ophoto img{width:100%;height:100%;object-fit:cover}
+  .origin .ocap{
+    font-family:'Caveat',cursive;font-size:18px;color:var(--rose);margin-top:9px;
+  }
+  .origin p{font-size:13.5px;line-height:1.6;color:var(--ink-soft);margin-top:7px}
+  .origin .opending{
+    margin-top:11px;padding-top:10px;border-top:2px dashed var(--dash);
+    font-size:11.5px;letter-spacing:.06em;color:var(--rose);font-weight:500;
+  }
+
   /* ---------- superpower badges ----------
      One per row rather than a 2x2 grid: the copy is long enough that
      two narrow columns turn it into a wall of five word lines. */
@@ -686,6 +705,19 @@
       <p class="ssub">a few favourite moments</p>
       <div class="rail" id="album"></div>
       <p class="swipe" id="photoCount"></p>
+    </section>
+
+    <section>
+      <p class="stitle">Where this started 🎂</p>
+      <p class="ssub">a tradition, one birthday old</p>
+      <div class="origin">
+        <div class="ophoto">
+          <img src="photos/where-it-started.jpg" alt="" loading="lazy" style="object-position:50% 45%" />
+        </div>
+        <p class="ocap">Ruchitha's birthday, the first one we did like this</p>
+        <p>That was the night the cake ended up somewhere other than a plate, and it has been the standard ever since. Tonight it is Sathvika's turn.</p>
+        <p class="opending">The trio picture from tonight is still pending 📸</p>
+      </div>
     </section>
 
     <section>
