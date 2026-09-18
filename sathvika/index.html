@@ -833,8 +833,12 @@ We're celebrating you across each mile.</p>
     },9000);
   }
 
+  // Add ?preview to the URL to see the celebration state early, exactly as
+  // she will see it on the day. Nothing else on the page changes.
+  const PREVIEW=new URLSearchParams(location.search).has('preview');
+
   function tick(){
-    const diff=target.getTime()-Date.now();
+    const diff=PREVIEW ? -1 : target.getTime()-Date.now();
     if(diff<=0){
       timerEl.style.display='none';
       arrivedEl.style.display='block';
