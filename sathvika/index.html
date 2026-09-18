@@ -164,13 +164,34 @@
     position:absolute;top:2px;left:15px;font-family:'Baloo 2',cursive;font-weight:800;
     font-size:52px;line-height:1;color:rgba(217,107,138,.22);pointer-events:none;
   }
-  .poem p{
+  /* Centred, because left aligned short lines strand themselves against a
+     wide card on desktop. Stanzas are separate blocks rather than blank
+     lines, so the gap between them is controlled rather than a full
+     empty line of leading. */
+  .poem .stanza{
     position:relative;font-family:'Caveat',cursive;font-weight:600;
-    color:var(--ink);font-size:18.5px;line-height:1.7;white-space:pre-line;
+    color:var(--ink);font-size:19px;line-height:1.58;white-space:pre-line;
+    text-align:center;
   }
+  /* a touch smaller on narrow phones, so fewer lines of the poem wrap */
+  @media (max-width:430px){
+    .poem .stanza{font-size:17.5px}
+  }
+  .poem .orn{
+    text-align:center;font-size:15px;line-height:1;
+    margin:13px 0;opacity:.9;
+    position:relative;
+  }
+  /* a hairline either side of the ornament, so it reads as a divider */
+  .poem .orn::before,.poem .orn::after{
+    content:'';position:absolute;top:50%;width:46px;height:1px;
+    background:linear-gradient(to right, transparent, rgba(217,107,138,.45), transparent);
+  }
+  .poem .orn::before{right:calc(50% + 16px)}
+  .poem .orn::after{left:calc(50% + 16px)}
   .poem .sign{
-    margin-top:12px;padding-top:11px;border-top:2px dashed var(--dash);
-    text-align:right;font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+    margin-top:16px;padding-top:12px;border-top:2px dashed var(--dash);
+    text-align:center;font-size:10px;letter-spacing:.18em;text-transform:uppercase;
     color:var(--rose);font-weight:600;
   }
 
@@ -629,31 +650,7 @@
     <section>
       <p class="stitle">A few lines for you 🖋️</p>
       <p class="ssub">from the gang</p>
-      <div class="poem">
-        <div class="quote">&ldquo;</div>
-        <p>Today we light the candles just for you,
-The youngest heart, the brightest point of view.
-Before the rings, the vows, and wedding gear,
-We pause right here to celebrate your year.
-
-You've given so much life to every space,
-Carrying our days with easy warmth and grace.
-Tatsat and Akash still owe their steps to your beat,
-The master choreographer turning two left feet
-Into pure rhythm, effortlessly bright,
-Guiding our chaos with patience and light.
-
-Your talent is effortless, your energy pure,
-A spark in our circle that's steady and sure.
-Next week the promises begin to bloom,
-And February waits with love and room.
-
-Happy Birthday to the soul inside our fold.
-Step forward strong, hold on to all you hold.
-Take every blessing, keep that easy smile,
-We're celebrating you across each mile.</p>
-        <div class="sign">from all of us 💛</div>
-      </div>
+      <div class="poem" id="poem"></div>
     </section>
 
     <section>
@@ -768,6 +765,20 @@ We're celebrating you across each mile.</p>
         text:'Happy Birthday, Sathvika! 🎂✨ From our early project days to watching you become that insanely talented, who is gloriously crazy about everything she takes up, it has been an absolute privilege having you in my corner. Thank you for always being my go-to listener through every high, low, and messy thought without ever passing judgment. You’re stepping into such an exciting new chapter with your engagement and wedding journey ahead, and while life and work might shift things around, you are officially stuck with this friendship for life. Keep that incredible spark, and have the happiest, most magical birthday!'
       }
     ],
+
+    // The poem, verbatim, one entry per stanza. Splitting it this way lets
+    // each stanza breathe properly and puts a small ornament between them,
+    // chosen to match what that stanza is about.
+    poem:{
+      stanzas:[
+        'Today we light the candles just for you,\nThe youngest heart, the brightest point of view.\nBefore the rings, the vows, and wedding gear,\nWe pause right here to celebrate your year.',
+        'You’ve given so much life to every space,\nCarrying our days with easy warmth and grace.\nTatsat and Akash still owe their steps to your beat,\nThe master choreographer turning two left feet\nInto pure rhythm, effortlessly bright,\nGuiding our chaos with patience and light.',
+        'Your talent is effortless, your energy pure,\nA spark in our circle that’s steady and sure.\nNext week the promises begin to bloom,\nAnd February waits with love and room.',
+        'Happy Birthday to the soul inside our fold.\nStep forward strong, hold on to all you hold.\nTake every blessing, keep that easy smile,\nWe’re celebrating you across each mile.'
+      ],
+      ornaments:['🎂','💃','💍'],
+      sign:'from all of us 💛'
+    },
 
     // friends still writing. Set above zero to show a saved spot on the wall.
     openSlots:0,
@@ -1009,6 +1020,18 @@ We're celebrating you across each mile.</p>
   }
   document.getElementById('wrClose').addEventListener('click',closeWish);
   wr.addEventListener('click',e=>{ if(e.target===wr) closeWish(); });
+
+  /* ---------- the poem ---------- */
+  (function(){
+    const po=DATA.poem;
+    let html='<div class="quote">&ldquo;</div>';
+    po.stanzas.forEach((st,i)=>{
+      html+='<p class="stanza">'+esc(st)+'</p>';
+      if(po.ornaments[i]) html+='<div class="orn">'+po.ornaments[i]+'</div>';
+    });
+    html+='<div class="sign">'+esc(po.sign)+'</div>';
+    document.getElementById('poem').innerHTML=html;
+  })();
 
   /* ---------- the anchor wish ---------- */
   (function(){
